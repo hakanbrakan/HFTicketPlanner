@@ -2,3 +2,13 @@ Saker att göra
 
 10biljett kan sparas o man har flera mellan
 Maven version 2.0.0 snapshot
+
+spara undan facit från idag
+leta fram sourcekod
+skapa workspace
+checka in på github
+skriva testklasser
+skapa konfigurerbar biljettyp som finns i konfigfilen
+dynamisk plats för konfigfilen
+Bygga med Maven
+Använda validators http://www.baeldung.com/javax-validation
