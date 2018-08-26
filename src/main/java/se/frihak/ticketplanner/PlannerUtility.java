@@ -15,7 +15,8 @@ public class PlannerUtility extends TicketplannerBase
 		Properties props = new Properties();
 		try
 		{
-			props.load(new FileInputStream("C:\\Temp\\HFticketplanner.properties"));
+//			props.load(new FileInputStream("/Users/inger/gitRepos/HFTicketPlanner/src/test/resources/HFticketplanner_20150911.properties"));
+			props.load(new FileInputStream("/Users/inger/gitRepos/HFTicketPlanner/src/test/resources/HFticketplanner_20180820.properties"));
 		}
 		catch (Exception e)
 		{

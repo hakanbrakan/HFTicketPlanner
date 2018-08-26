@@ -103,7 +103,7 @@ public class Planner extends TicketplannerBase
 		PrintStream p = null; // declare a print stream object
 		try
 		{
-			out = new FileOutputStream("c:\\temp\\HFTicketplannerReport.txt");
+			out = new FileOutputStream("/Users/inger/gitRepos/HFTicketPlanner/src/test/resources/Report.txt");
 			p = new PrintStream( out );
 		}
 		catch (FileNotFoundException e1)
@@ -197,7 +197,7 @@ public class Planner extends TicketplannerBase
 //		Biljettplan oldPlan = null; //Endast för debugging
 		while (iter.hasNext())
 		{
-			Biljettplan bp = (Biljettplan) iter.next();
+			Biljettplan bp = iter.next();
 			if(oldDay.equals(bp.getSistaGiltighetsdag()) && planeringsdag.equals(oldDay))
 			{
 				//Samma dag, därför ska vi rensa bort denna
