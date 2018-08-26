@@ -1,15 +1,17 @@
 
 Todo
 ====
-dynamisk plats för konfigfilen
 Tester för gammal funktionalitet. props in ger report ut. kanske jmf hela filerna.
+dynamisk plats för konfigfilen
 
 10biljett kan sparas o man har flera mellan
 Maven version 2.0.0 snapshot
 i propertiesfilen ha path till outputfilen
 
+Ny biljettyp - poäng, lång giltighetstid, x resor 0kr
 skriva testklasser
 Vid "rensa plan" ta bort den plan som har minst antal månadskort
+Formatera koden
 skapa konfigurerbar biljettyp som finns i konfigfilen
 Bygga med Maven
 Använda validators http://www.baeldung.com/javax-validation
@@ -17,6 +19,7 @@ Använda validators http://www.baeldung.com/javax-validation
 
 Klart
 =====
+2018-08-25
 leta fram sourcekod
 skapa workspace
 spara undan facit från idag
