@@ -19,4 +19,21 @@ public class HFTicketplannerTest {
 		assertEquals(linesExpected, linesActual);;
 	}
 
+//	@Test
+//	public void testMainFunctionOnFiles() throws IOException {
+//		HFTicketplanner.main(null);
+//		
+//		final List<String> linesActual = Files.readAllLines(Paths.get("/Users/inger/gitRepos/HFTicketPlanner/src/test/resources/Report.txt"));
+//		final List<String> linesExpected = Files.readAllLines(Paths.get("/Users/inger/gitRepos/HFTicketPlanner/src/test/resources/HFTicketplannerReport_20180827.txt"));
+//		assertEquals(linesExpected, linesActual);
+//	}
+
+//	@Test
+//	public void testMainFunctionOnFiles() throws IOException {
+//		HFTicketplanner.main(null);
+//		
+//		final List<String> linesActual = Files.readAllLines(Paths.get("/Users/inger/gitRepos/HFTicketPlanner/src/test/resources/Report.txt"));
+//		final List<String> linesExpected = Files.readAllLines(Paths.get("/Users/inger/gitRepos/HFTicketPlanner/src/test/resources/HFTicketplannerReport_20150911.txt"));
+//		assertEquals(linesExpected, linesActual);
+//	}
 }
