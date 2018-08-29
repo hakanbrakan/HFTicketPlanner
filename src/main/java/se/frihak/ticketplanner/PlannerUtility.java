@@ -1,6 +1,9 @@
 package se.frihak.ticketplanner;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -9,19 +12,9 @@ import se.frihak.ticketplanner.kalender.Dag;
 
 public class PlannerUtility extends TicketplannerBase {
 
-	public Properties getProperties() {
+	public Properties getProperties(InputStream fileAsStream) throws IOException {
 		Properties props = new Properties();
-		try {
-			// props.load(new
-			// FileInputStream("/Users/inger/gitRepos/HFTicketPlanner/src/test/resources/HFticketplanner_20180827.properties"));
-			props.load(new FileInputStream("/Users/inger/gitRepos/HFTicketPlanner/src/test/resources/HFticketplanner_20180820.properties"));
-			// props.load(new
-			// FileInputStream("/Users/inger/gitRepos/HFTicketPlanner/src/test/resources/HFticketplanner_20150911.properties"));
-		} catch (Exception e) {
-			// Filen fanns inte. Så vi stoppar in några defaultvärden
-			props.setProperty("forstaResdag", "2005-01-01");
-			props.setProperty("sistaResdag", "2005-01-02");
-		}
+		props.load(fileAsStream);
 		return props;
 	}
 
@@ -37,5 +30,9 @@ public class PlannerUtility extends TicketplannerBase {
 		list.add(lastDay);
 
 		return list;
+	}
+
+	public InputStream getReaderFromFilename(String filename) throws FileNotFoundException {
+		return new FileInputStream(filename);
 	}
 }

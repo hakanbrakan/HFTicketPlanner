@@ -1,5 +1,7 @@
 package se.frihak.ticketplanner;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 public class HFTicketplanner {
@@ -8,12 +10,16 @@ public class HFTicketplanner {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		PlannerUtility util = new PlannerUtility();
-		Properties props = util.getProperties();
-		// System.out.println(props);
+		try {
+			PlannerUtility util = new PlannerUtility();
+			InputStream fileAsStream = util.getReaderFromFilename(args[0]);
+			Properties props = util.getProperties(fileAsStream);
 
-		Planner planner = new Planner();
-		planner.planeraBiljetter(props);
+			Planner planner = new Planner();
+			planner.planeraBiljetter(props);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 	}
 }

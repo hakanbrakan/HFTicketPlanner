@@ -1,7 +1,6 @@
 
 Todo
 ====
-Skicka in filen till properties istf hårdkodat filnamn
 Ta testfilerna med classloader istf hårdkodad sökväg
 Tester för gammal funktionalitet. props in ger report ut. kanske jmf hela filerna.
 dynamisk plats för konfigfilen
@@ -21,6 +20,7 @@ Använda validators http://www.baeldung.com/javax-validation
 Klart
 =====
 2018-08-29
+Skicka in filen till properties istf hårdkodat filnamn
 Formatera koden
 
 2018-08-27

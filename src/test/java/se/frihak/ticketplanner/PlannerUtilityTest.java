@@ -2,6 +2,9 @@ package se.frihak.ticketplanner;
 
 import static org.junit.Assert.assertEquals;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import java.util.Properties;
 
@@ -21,9 +24,11 @@ public class PlannerUtilityTest
 	}
 
 	@Test
-	public void testGetProperties()
+	public void testGetProperties() throws IOException
 	{
-		Properties props = util.getProperties();
+		String filename = "/Users/inger/gitRepos/HFTicketPlanner/src/test/resources/HFticketplanner_20180820.properties";
+		InputStream file = new FileInputStream(filename );
+		Properties props = util.getProperties(file);
 		
 		props.setProperty("testkey", "testvalue");
 		assertEquals("testvalue", props.getProperty("testkey"));
