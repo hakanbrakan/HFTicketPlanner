@@ -80,7 +80,7 @@ public class Planner extends TicketplannerBase {
 		FileOutputStream out = null; // declare a file output
 		PrintStream p = null; // declare a print stream object
 		try {
-			out = new FileOutputStream("/Users/inger/gitRepos/HFTicketPlanner/src/test/resources/Report.txt");
+			out = new FileOutputStream("/private/tmp/Report.txt");
 			p = new PrintStream(out);
 		} catch (FileNotFoundException e1) {
 			// TODO Auto-generated catch block
