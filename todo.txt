@@ -1,6 +1,8 @@
 
 Todo
 ====
+Skicka in filen till properties istf hårdkodat filnamn
+Ta testfilerna med classloader istf hårdkodad sökväg
 Tester för gammal funktionalitet. props in ger report ut. kanske jmf hela filerna.
 dynamisk plats för konfigfilen
 
@@ -19,6 +21,9 @@ Använda validators http://www.baeldung.com/javax-validation
 
 Klart
 =====
+2018-08-27
+Lägga till gamla tester
+
 2018-08-25
 leta fram sourcekod
 skapa workspace
