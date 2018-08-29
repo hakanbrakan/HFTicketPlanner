@@ -9,81 +9,70 @@ import java.util.GregorianCalendar;
 
 import se.frihak.ticketplanner.TicketplannerBase;
 
-public class Dag extends TicketplannerBase
-{
+public class Dag extends TicketplannerBase {
 	private String strDag;
 	private Calendar dag = null;
 	DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 
-	public Dag(String newDag)
-	{
+	public Dag(String newDag) {
 		strDag = newDag;
 		dag = new GregorianCalendar();
-		
-		try
-		{
+
+		try {
 			dag.setTime(formatter.parse(strDag));
-		}
-		catch (ParseException e)
-		{
+		} catch (ParseException e) {
 			strDag = "2999-12-31";
 			dag.setTime(new Date(strDag));
 		}
 	}
-	
-	public Dag(Calendar nyDag)
-	{
+
+	public Dag(Calendar nyDag) {
 		strDag = formatter.format(nyDag.getTime());
 		dag = nyDag;
 	}
 
-	public Dag getNextDag()
-	{
-		Dag nextDag = new Dag((Calendar)dag.clone());
+	public Dag getNextDag() {
+		Dag nextDag = new Dag((Calendar) dag.clone());
 		nextDag.addDays(1);
 		return nextDag;
 	}
 
-	public boolean equals(Object arg0)
-	{
-		Dag andraDagen = (Dag)arg0;
-		
-		if (strDag.equals(andraDagen.strDag))
-		{
+	@Override
+	public boolean equals(Object arg0) {
+		Dag andraDagen = (Dag) arg0;
+
+		if (strDag.equals(andraDagen.strDag)) {
 			return true;
 		}
 
 		return false;
 	}
 
-	public String toString()
-	{
+	@Override
+	public String toString() {
 		return strDag;
 	}
 
-	public boolean before(Dag anotherDay)
-	{
+	public boolean before(Dag anotherDay) {
 		return dag.before(anotherDay.dag);
 	}
 
-	public void addDays(int i)
-	{
+	public void addDays(int i) {
 		dag.add(GregorianCalendar.DAY_OF_MONTH, i);
 		strDag = formatter.format(dag.getTime());
 		return;
 	}
-	
-	public Object clone()
-	{
-		Dag nyDag = new Dag((Calendar)dag.clone());
+
+	@Override
+	public Object clone() {
+		Dag nyDag = new Dag((Calendar) dag.clone());
 
 		return nyDag;
 	}
 
-	public String getWeekdayFormatted()
-	{
+	public String getWeekdayFormatted() {
 		int veckodag = dag.get(Calendar.DAY_OF_WEEK);
-		
+
 		String[] dagar = new String[8];
 		dagar[1] = "Söndag";
 		dagar[2] = "Måndag";
@@ -93,15 +82,11 @@ public class Dag extends TicketplannerBase
 		dagar[6] = "Fredag";
 		dagar[7] = "Lördag";
 
-
 		return dagar[veckodag];
 	}
 
-	public static Dag getToday()
-	{
-		//TODO kolla om denna metod verkligen används
+	public static Dag getToday() {
+		// TODO kolla om denna metod verkligen används
 		return new Dag(new GregorianCalendar());
 	}
-	
-	
 }

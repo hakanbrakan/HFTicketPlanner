@@ -13,7 +13,6 @@ i propertiesfilen ha path till outputfilen
 Ny biljettyp - poäng, lång giltighetstid, x resor 0kr
 skriva testklasser
 Vid "rensa plan" ta bort den plan som har minst antal månadskort
-Formatera koden
 skapa konfigurerbar biljettyp som finns i konfigfilen
 Bygga med Maven
 Använda validators http://www.baeldung.com/javax-validation
@@ -21,6 +20,9 @@ Använda validators http://www.baeldung.com/javax-validation
 
 Klart
 =====
+2018-08-29
+Formatera koden
+
 2018-08-27
 Lägga till gamla tester
 

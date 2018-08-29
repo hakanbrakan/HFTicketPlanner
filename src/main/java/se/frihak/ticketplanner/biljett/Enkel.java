@@ -5,11 +5,9 @@ import java.util.Properties;
 
 import se.frihak.ticketplanner.kalender.Resa;
 
-public class Enkel extends Biljett
-{
+public class Enkel extends Biljett {
 
-	public Enkel(Resa resa, Properties props)
-	{
+	public Enkel(Resa resa, Properties props) {
 		super();
 		int pris = Integer.parseInt(props.getProperty("priceEnkel"));
 		setPris(pris);
@@ -19,23 +17,22 @@ public class Enkel extends Biljett
 		add(resa);
 	}
 
-	public boolean isValid(Resa resa)
-	{
-		//Har du köpt en enkelresa så kan den aldrig vara valid för ytterligare en resa
-		//Därför returnerar vi alltid false här.
+	@Override
+	public boolean isValid(Resa resa) {
+		// Har du köpt en enkelresa så kan den aldrig vara valid för ytterligare en resa
+		// Därför returnerar vi alltid false här.
 
 		return false;
 	}
 
-	public String toString()
-	{
+	@Override
+	public String toString() {
 		return "Enkel " + super.getForstaGiltighetsdag();
 	}
 
-	public void write(PrintStream p)
-	{
+	@Override
+	public void write(PrintStream p) {
 		p.print("E" + getForstaGiltighetsdag() + " ");
 		// TODO Skapa en testmetod JUnit
-		
 	}
 }
