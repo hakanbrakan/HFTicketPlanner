@@ -4,11 +4,9 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-public class ResaTest
-{
+public class ResaTest {
 	@Test
-	public void testGetDag()
-	{
+	public void testGetDag() {
 		Dag dag = new Dag("2007-11-01");
 		Resa resa = new Resa(dag);
 		Dag dag2 = resa.getDag();
@@ -16,8 +14,7 @@ public class ResaTest
 	}
 
 	@Test
-	public void testToString()
-	{
+	public void testToString() {
 		Dag dag = new Dag("2007-11-01");
 		Resa resa = new Resa(dag);
 		String dagString = resa.toString();

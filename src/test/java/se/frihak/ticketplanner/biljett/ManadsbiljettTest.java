@@ -12,26 +12,23 @@ import org.junit.Test;
 import se.frihak.ticketplanner.kalender.Dag;
 import se.frihak.ticketplanner.kalender.Resa;
 
-public class ManadsbiljettTest
-{
+public class ManadsbiljettTest {
 	private Manadsbiljett manad;
 	private Resa resa;
 	private Dag dag;
 	private Properties props;
 
 	@Before
-	public void setUp() throws Exception
-	{
+	public void setUp() throws Exception {
 		dag = new Dag("2007-11-12");
 		resa = new Resa(dag);
 		props = new Properties();
 		props.setProperty("priceManad", "1900");
-		manad = new Manadsbiljett(resa,props);
+		manad = new Manadsbiljett(resa, props);
 	}
 
 	@Test
-	public void testIsValid()
-	{
+	public void testIsValid() {
 		Dag dag2 = new Dag("2007-11-13");
 		Resa resa2 = new Resa(dag2);
 		assertTrue(manad.isValid(resa2));
@@ -47,36 +44,31 @@ public class ManadsbiljettTest
 	}
 
 	@Test
-	public void testToString()
-	{
+	public void testToString() {
 		assertEquals("Månadskort 2007-11-12 t.o.m 2007-12-11", manad.toString());
 	}
 
 	@Test
-	public void testSetPris()
-	{
+	public void testSetPris() {
 		manad.setPris(1345);
 		assertEquals(1345, manad.getPris());
 	}
 
 	@Test
-	public void testGetForstaGiltighetsdag()
-	{
+	public void testGetForstaGiltighetsdag() {
 		assertEquals("2007-11-12", manad.getForstaGiltighetsdag().toString());
 	}
 
 	@Test
-	public void testSetForstaGiltighetsdag()
-	{
+	public void testSetForstaGiltighetsdag() {
 		manad.setForstaGiltighetsdag(new Dag("2007-05-05"));
 		assertEquals("2007-05-05", manad.getForstaGiltighetsdag().toString());
 	}
 
 	@Test
-	public void testGetSistaGiltighetsdag()
-	{
+	public void testGetSistaGiltighetsdag() {
 		assertEquals("2007-12-11", manad.getSistaGiltighetsdag().toString());
-		
+
 		Dag dag2 = new Dag("2007-11-19");
 		Resa resa2 = new Resa(dag2);
 		Properties props2 = new Properties();
@@ -86,21 +78,18 @@ public class ManadsbiljettTest
 	}
 
 	@Test
-	public void testSetSistaGiltighetsdag()
-	{
+	public void testSetSistaGiltighetsdag() {
 		manad.setSistaGiltighetsdag(new Dag("2007-01-01"));
 		assertEquals("2007-01-01", manad.getSistaGiltighetsdag().toString());
 	}
 
 	@Test
-	public void testAdd()
-	{
-		//TODO Jobba mer h�r fail("Not yet implemented");
+	public void testAdd() {
+		// TODO Jobba mer h�r fail("Not yet implemented");
 	}
 
 	@Test
-	public void testGetPris()
-	{
+	public void testGetPris() {
 		assertEquals(1900, manad.getPris());
 	}
 }

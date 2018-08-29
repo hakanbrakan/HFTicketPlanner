@@ -11,16 +11,14 @@ import org.junit.Test;
 import se.frihak.ticketplanner.kalender.Dag;
 import se.frihak.ticketplanner.kalender.Resa;
 
-public class EnkelTest
-{
+public class EnkelTest {
 	private Enkel enkel;
 	private Resa resa;
 	private Dag dag;
 	private Properties props;
 
 	@Before
-	public void setUp() throws Exception
-	{
+	public void setUp() throws Exception {
 		dag = new Dag("2007-11-12");
 		resa = new Resa(dag);
 		props = new Properties();
@@ -29,8 +27,7 @@ public class EnkelTest
 	}
 
 	@Test
-	public void testIsValid()
-	{
+	public void testIsValid() {
 		assertFalse(enkel.isValid(resa));
 
 		Dag dag2 = new Dag("2007-11-13");
@@ -41,12 +38,9 @@ public class EnkelTest
 		Resa resa3 = new Resa(dag3);
 		assertFalse(enkel.isValid(resa3));
 	}
-	
+
 	@Test
-	public void testToString()
-	{
+	public void testToString() {
 		assertEquals("Enkel 2007-11-12", enkel.toString());
-
 	}
-
 }
