@@ -1,8 +1,6 @@
 
 Todo
 ====
-Ta testfilerna med classloader istf hårdkodad sökväg
-
 10biljett kan sparas o man har flera mellan
 Maven version 2.0.0 snapshot
 JUnit5
@@ -18,6 +16,7 @@ Använda validators http://www.baeldung.com/javax-validation
 Klart
 =====
 2018-09-03
+Ta testfilerna med classloader istf hårdkodad sökväg
 I propertiesfilen ha path till outputfilen
 
 2018-08-29
