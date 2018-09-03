@@ -2,7 +2,10 @@ package se.frihak.ticketplanner;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 import java.util.Properties;
+
+import se.frihak.ticketplanner.biljett.Biljettplan;
 
 public class HFTicketplanner {
 
@@ -16,7 +19,10 @@ public class HFTicketplanner {
 			Properties props = util.getProperties(fileAsStream);
 
 			Planner planner = new Planner();
-			planner.planeraBiljetter(props);
+			List<Biljettplan> biljettplaner = planner.planeraBiljetter(props);
+			
+			String reportfile = props.getProperty("outfile");
+			util.writePlaner(biljettplaner, reportfile );
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

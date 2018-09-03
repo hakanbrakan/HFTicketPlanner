@@ -1,9 +1,5 @@
 package se.frihak.ticketplanner;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -17,7 +13,7 @@ import se.frihak.ticketplanner.kalender.Resa;
 
 public class Planner extends TicketplannerBase {
 
-	public void planeraBiljetter(Properties props) {
+	public List<Biljettplan> planeraBiljetter(Properties props) {
 		Dag firstDay = new Dag(props.getProperty("forstaResdag"));
 		Dag lastDay = new Dag(props.getProperty("sistaResdag"));
 
@@ -25,7 +21,7 @@ public class Planner extends TicketplannerBase {
 
 		List<Biljettplan> plan = createBiljettplan(resor, props);
 
-		write(plan);
+		return plan;
 	}
 
 	private List<Resa> getReseplan(Dag firstDay, Dag lastDay, Properties props) {
@@ -71,40 +67,6 @@ public class Planner extends TicketplannerBase {
 		}
 
 		return antalResor;
-	}
-
-	private void write(List<Biljettplan> plan) {
-
-		// Skapa en testmetod JUnit om den blir public
-
-		FileOutputStream out = null; // declare a file output
-		PrintStream p = null; // declare a print stream object
-		try {
-			out = new FileOutputStream("/private/tmp/Report.txt");
-			p = new PrintStream(out);
-		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-
-		for (Iterator<Biljettplan> iter = plan.iterator(); iter.hasNext();) {
-			Biljettplan biljplan = iter.next();
-
-			System.out.println("Pris: " + biljplan.getPrice() + "     :     " + biljplan);
-			p.print("Pris: " + biljplan.getPrice() + ", ");
-			biljplan.write(p);
-			p.println();
-			// p.println ("Pris: " + biljplan.getPrice() + " : " + biljplan);
-		}
-
-		p.close();
-		try {
-			out.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
 	}
 
 	private List<Biljettplan> createBiljettplan(List<Resa> resor, Properties props) {

@@ -1,11 +1,11 @@
 
 Todo
 ====
-i propertiesfilen ha path till outputfilen
 Ta testfilerna med classloader istf hårdkodad sökväg
 
 10biljett kan sparas o man har flera mellan
 Maven version 2.0.0 snapshot
+JUnit5
 
 Ny biljettyp - poäng, lång giltighetstid, x resor 0kr
 skriva testklasser
@@ -17,6 +17,9 @@ Använda validators http://www.baeldung.com/javax-validation
 
 Klart
 =====
+2018-09-03
+I propertiesfilen ha path till outputfilen
+
 2018-08-29
 Skicka in filen till properties istf hårdkodat filnamn
 dynamisk plats för konfigfilen

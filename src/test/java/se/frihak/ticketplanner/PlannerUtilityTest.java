@@ -54,4 +54,11 @@ public class PlannerUtilityTest {
 		assertEquals("2008-03-01", (list.get(67)).toString());
 		assertEquals("2008-03-02", (list.get(68)).toString());
 	}
+	
+	@Test(expected = IOException.class)
+	public void testWritePlaner() throws IOException {
+		String reportfile = "/private/asdfgtrftg/test.txt";
+		util.writePlaner(null, reportfile);
+	}
+	
 }

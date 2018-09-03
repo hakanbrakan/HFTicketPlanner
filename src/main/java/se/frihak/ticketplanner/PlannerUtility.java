@@ -2,12 +2,15 @@ package se.frihak.ticketplanner;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import se.frihak.ticketplanner.biljett.Biljettplan;
 import se.frihak.ticketplanner.kalender.Dag;
 
 public class PlannerUtility extends TicketplannerBase {
@@ -34,5 +37,19 @@ public class PlannerUtility extends TicketplannerBase {
 
 	public InputStream getReaderFromFilename(String filename) throws FileNotFoundException {
 		return new FileInputStream(filename);
+	}
+
+	public void writePlaner(List<Biljettplan> biljettplaner, String reportfile) throws IOException {
+		FileOutputStream out = new FileOutputStream(reportfile);
+		PrintStream p = new PrintStream(out);
+
+		for (Biljettplan biljplan : biljettplaner) {
+			p.print("Pris: " + biljplan.getPrice() + ", ");
+			biljplan.write(p);
+			p.println();
+		}
+
+		p.close();
+		out.close();
 	}
 }
