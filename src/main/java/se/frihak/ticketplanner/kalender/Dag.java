@@ -20,6 +20,9 @@ public class Dag extends TicketplannerBase {
 
 		try {
 			dag.setTime(formatter.parse(strDag));
+			if( ! formatter.format(dag.getTime()).equalsIgnoreCase(strDag)) {
+				throw new ParseException("fel", 1);
+			}
 		} catch (ParseException e) {
 			strDag = "2999-12-31";
 			dag.setTime(new Date(strDag));

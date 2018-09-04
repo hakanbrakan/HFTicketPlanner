@@ -3,10 +3,11 @@ Todo
 ====
 10biljett kan sparas o man har flera mellan
 Maven version 2.0.0 snapshot
+Använda java8 localdate -ersätta eller ändra Dag.java
 JUnit5
 
 Ny biljettyp - poäng, lång giltighetstid, x resor 0kr
-skriva testklasser
+Maxa coverage
 Vid "rensa plan" ta bort den plan som har minst antal månadskort
 skapa konfigurerbar biljettyp som finns i konfigfilen
 Bygga med Maven
@@ -15,6 +16,9 @@ Använda validators http://www.baeldung.com/javax-validation
 
 Klart
 =====
+2018-09-04
+Rätta dag.java - just nu accepterar den tex 1982-13-45
+
 2018-09-03
 Ta testfilerna med classloader istf hårdkodad sökväg
 I propertiesfilen ha path till outputfilen

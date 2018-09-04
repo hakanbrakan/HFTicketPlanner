@@ -117,4 +117,9 @@ public class DagTest {
 		String formattedDate = formatter.format(cal.getTime());
 		assertEquals(formattedDate, today.toString());
 	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testIllegalDate() {
+		new Dag("1982-13-45");
+	}
 }
