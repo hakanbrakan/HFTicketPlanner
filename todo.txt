@@ -7,6 +7,7 @@ org.apache.commons.lang3.StringUtils
 Maven version 2.0.0 snapshot
 Ny biljettyp - poäng, lång giltighetstid, x resor 0kr
 10biljett kan sparas o man har flera mellan
+Årskort
 Vid "rensa plan" ta bort den plan som har minst antal månadskort - kan vara samma sak som minst antal biljetter
 Använda java8 localdate -ersätta eller ändra Dag.java
 Maxa coverage
