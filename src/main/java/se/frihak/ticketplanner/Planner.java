@@ -13,6 +13,8 @@ import se.frihak.ticketplanner.kalender.Resa;
 
 public class Planner extends TicketplannerBase {
 
+	private int counter = 0;
+
 	public List<Biljettplan> planeraBiljetter(Properties props) {
 		Dag firstDay = new Dag(props.getProperty("forstaResdag"));
 		Dag lastDay = new Dag(props.getProperty("sistaResdag"));
@@ -118,7 +120,8 @@ public class Planner extends TicketplannerBase {
 			if (oldDay.equals(bp.getSistaGiltighetsdag()) && planeringsdag.equals(oldDay)) {
 				// Samma dag, därför ska vi rensa bort denna
 				// Stoppa alltså inte in den i den nya listan
-				System.out.println("Rensar plan: " + bp.toString());
+				System.out.println(counter  ++ + " Rensar plan: " + bp.toString());
+
 			} else {
 				nyLista.add(bp);
 				oldDay = bp.getSistaGiltighetsdag();
