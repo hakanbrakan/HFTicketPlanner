@@ -4,8 +4,8 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Properties;
 
+import se.frihak.ticketplanner.Ticketcreator;
 import se.frihak.ticketplanner.TicketplannerBase;
 import se.frihak.ticketplanner.kalender.Dag;
 import se.frihak.ticketplanner.kalender.Resa;
@@ -22,7 +22,7 @@ public class Biljettplan extends TicketplannerBase {
 	public Biljettplan() {
 	}
 
-	public List<Biljettplan> planera(Resa resa, Properties props) {
+	public List<Biljettplan> planera(Resa resa, Ticketcreator ticketcreator) {
 		List<Biljettplan> nyaPlaner = new ArrayList<Biljettplan>();
 
 		// Kolla om denna plan redan har en giltig biljett. Om ja, så returneras denna
@@ -44,9 +44,9 @@ public class Biljettplan extends TicketplannerBase {
 		}
 
 		// Skapa nya planer, en för varje biljetttyp
-		nyaPlaner.add(new Biljettplan(this, new Manadsbiljett(resa, props)));
-		nyaPlaner.add(new Biljettplan(this, new Enkel(resa, props)));
-		nyaPlaner.add(new Biljettplan(this, new TioResor(resa, props)));
+		for (Biljett oneTicket : ticketcreator.createAllTickets(resa)) {
+			nyaPlaner.add(new Biljettplan(this, oneTicket));
+		}
 
 		return nyaPlaner;
 	}

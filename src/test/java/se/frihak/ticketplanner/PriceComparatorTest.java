@@ -15,13 +15,22 @@ import se.frihak.ticketplanner.kalender.Resa;
 public class PriceComparatorTest {
 	private Biljettplan plan;
 	private Properties props;
+	private Ticketcreator ticketcreator;
 
 	@Before
 	public void setUp() throws Exception {
 		props = new Properties();
-		props.setProperty("priceEnkel", "90");
-		props.setProperty("priceTioresor", "650");
-		props.setProperty("priceManad", "1900");
+		props.setProperty("biljettTyper", "Manad,Enkel,Tioresor");
+		props.setProperty("EnkelPris", "90");
+		props.setProperty("TioresorPris", "650");
+		props.setProperty("ManadPris", "1900");
+		props.setProperty("EnkelGiltigAntalDagar", "1");
+		props.setProperty("EnkelGiltigAntalResor", "1");
+		props.setProperty("TioresorGiltigAntalDagar", "30");
+		props.setProperty("TioresorGiltigAntalResor", "10");
+		props.setProperty("ManadGiltigAntalDagar", "30");
+		props.setProperty("ManadGiltigAntalResor", "48");
+		ticketcreator = new Ticketcreator(props);
 	}
 
 	@Test
@@ -29,7 +38,7 @@ public class PriceComparatorTest {
 		plan = new Biljettplan();
 		Dag dag = new Dag("2007-11-01");
 		Resa resa = new Resa(dag);
-		List<Biljettplan> list = plan.planera(resa, props);
+		List<Biljettplan> list = plan.planera(resa, ticketcreator);
 
 		Biljettplan planMedMankort = list.get(0);
 		Biljettplan planMedEnkel = list.get(1);

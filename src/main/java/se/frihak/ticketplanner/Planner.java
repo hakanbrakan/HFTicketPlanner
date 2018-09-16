@@ -21,7 +21,7 @@ public class Planner extends TicketplannerBase {
 
 		List<Resa> resor = getReseplan(firstDay, lastDay, props);
 
-		List<Biljettplan> plan = createBiljettplan(resor, props);
+		List<Biljettplan> plan = createBiljettplan(resor, new Ticketcreator(props));
 
 		return plan;
 	}
@@ -71,7 +71,7 @@ public class Planner extends TicketplannerBase {
 		return antalResor;
 	}
 
-	private List<Biljettplan> createBiljettplan(List<Resa> resor, Properties props) {
+	private List<Biljettplan> createBiljettplan(List<Resa> resor, Ticketcreator ticketcreator) {
 
 		// Skapa en testmetod JUnit om den blir public
 
@@ -85,7 +85,7 @@ public class Planner extends TicketplannerBase {
 			for (Iterator<Biljettplan> planIter = plan.iterator(); planIter.hasNext();) {
 				Biljettplan biljettplan = planIter.next();
 
-				List<Biljettplan> planArray = biljettplan.planera(resa, props);
+				List<Biljettplan> planArray = biljettplan.planera(resa, ticketcreator);
 				vec.addAll(planArray);
 			}
 
