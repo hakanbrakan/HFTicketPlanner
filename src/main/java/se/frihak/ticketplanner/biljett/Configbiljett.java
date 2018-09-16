@@ -39,6 +39,9 @@ public class Configbiljett extends Biljett {
 
 	@Override
 	public String toString() {
+		if (getForstaGiltighetsdag().before(getSistaGiltighetsdag())) {
+			return namn +" " + super.getForstaGiltighetsdag() + " t.o.m " + getSistaGiltighetsdag();
+		}
 		return namn + " " + super.getForstaGiltighetsdag();
 	}
 
@@ -61,4 +64,25 @@ public class Configbiljett extends Biljett {
 		
 		return new Configbiljett(biljettnamn, resa, giltigAntalResor, giltigAntalDagar, pris);
 	}
+	
+	@Override
+	public Dag getSistaGiltighetsdag() {
+		//TODO Det här var en konstig konstruktion. Verkar som att denna finns bara för att sätta om 
+		//sista dag när alla reor är förbrukade så man inte behöver skapa o kasta planer i onödan.
+		//TODO gör något åt denna. Tex vid rensa planer inte bara titta på sistagiltighetsdag utan även om bilj är valid på något sätt.
+		//Oavsett vilket bör det förbättras.
+		Dag sistaDag = null;
+
+		if (resor.size() < giltigAntalResor) {
+			sistaDag = super.getSistaGiltighetsdag();
+		} else {
+			// Hämta sista resan
+			Resa sistaResa = resor.get(resor.size() - 1);
+
+			sistaDag = sistaResa.getDag();
+		}
+
+		return sistaDag;
+	}
+
 }
