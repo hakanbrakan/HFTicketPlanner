@@ -28,9 +28,9 @@ public class BiljettTest {
 		props.setProperty("priceTioresor", "650");
 		props.setProperty("priceManad", "1900");
 
-		biljEnkel1 = new Enkel(resa, props);
-		biljManad1 = new Manadsbiljett(resa, props);
-		biljTio1 = new TioResor(resa, props);
+		biljEnkel1 = Configbiljett.getInstance("Enkel", resa, 1, 1, 90);
+		biljManad1 = Configbiljett.getInstance("Månadskort", resa, 48, 30, 1900);
+		biljTio1 = Configbiljett.getInstance("TioResor", resa, 10, 30, 650);
 	}
 
 	@Test

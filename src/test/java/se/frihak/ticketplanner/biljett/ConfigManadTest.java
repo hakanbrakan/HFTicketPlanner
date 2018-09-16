@@ -13,15 +13,12 @@ import se.frihak.ticketplanner.kalender.Dag;
 import se.frihak.ticketplanner.kalender.Resa;
 
 public class ConfigManadTest {
-
-	private Dag dag;
 	private Resa resa;
 	private Configbiljett manad;
 
 	@Before
 	public void setUp() {
-		dag = new Dag("2007-11-12");
-		resa = new Resa(dag);
+		resa = new Resa(new Dag("2007-11-12"));
 		manad = Configbiljett.getInstance("Månadskort", resa, 48, 30, 1900);
 	}
 
@@ -85,7 +82,7 @@ public class ConfigManadTest {
 		Resa resa2 = new Resa(dag2);
 		Properties props2 = new Properties();
 		props2.setProperty("priceManad", "1900");
-		Manadsbiljett manad2 = new Manadsbiljett(resa2, props2);
+		Configbiljett manad2 = Configbiljett.getInstance("Månadskort", resa2, 48, 30, 1900);
 		assertEquals("2007-12-18", manad2.getSistaGiltighetsdag().toString());
 	}
 
@@ -104,5 +101,4 @@ public class ConfigManadTest {
 	public void testGetPris() {
 		assertEquals(1900, manad.getPris());
 	}
-
 }
