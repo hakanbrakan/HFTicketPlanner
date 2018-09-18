@@ -8,15 +8,14 @@ import java.util.Properties;
 import se.frihak.ticketplanner.biljett.Biljett;
 import se.frihak.ticketplanner.biljett.Configbiljett;
 import se.frihak.ticketplanner.kalender.Resa;
+import se.frihak.ticketplanner.validators.Asserter;
 
 public class Ticketcreator {
 
 	private Properties props;
 
 	public Ticketcreator(Properties properties) {
-		if (properties == null) {
-			throw new IllegalArgumentException("Properties must not be null");
-		}
+		Asserter.isNotNull(properties, "Properties must not be null");
 		this.props = properties;
 	}
 
@@ -31,9 +30,7 @@ public class Ticketcreator {
 			Configbiljett enBiljett = Configbiljett.getInstance(enBiljettyp, resa, giltigAntalResor , giltigAntalDagar, pris);
 			lista.add(enBiljett);
 		}
-		
-		
-		// TODO Auto-generated method stub
+
 		return lista;
 	}
 

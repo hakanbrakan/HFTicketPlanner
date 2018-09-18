@@ -1,9 +1,16 @@
 
 Todo
 ====
+public class Customer
+   public Customer(final String data)
+      notNull(data);
+      isTrue(xxx.isValid(data));
+      parse
+      assign fields
+
+
 Använda validators http://www.baeldung.com/javax-validation - org.apache.commons.lang3.Validate ?
 org.apache.commons.lang3.StringUtils
-Maven version 2.0.0 snapshot
 Ny biljettyp - poäng, lång giltighetstid, x resor 0kr
 10biljett kan sparas o man har flera mellan
 Årskort
@@ -18,6 +25,7 @@ Bygga med Maven
 Klart
 =====
 2018-09-16
+Maven version 2.0.0 snapshot
 Skapa konfigurerbar biljettyp som finns i konfigfilen
 
 2018-09-04

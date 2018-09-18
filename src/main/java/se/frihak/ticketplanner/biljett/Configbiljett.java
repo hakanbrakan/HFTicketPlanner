@@ -1,10 +1,11 @@
 package se.frihak.ticketplanner.biljett;
 
 import java.io.PrintStream;
-import java.security.InvalidParameterException;
 
 import se.frihak.ticketplanner.kalender.Dag;
 import se.frihak.ticketplanner.kalender.Resa;
+import se.frihak.ticketplanner.validators.Asserter;
+import se.frihak.ticketplanner.validators.Validator;
 
 public class Configbiljett extends Biljett {
 
@@ -46,21 +47,11 @@ public class Configbiljett extends Biljett {
 	}
 
 	public static Configbiljett getInstance(String biljettnamn, Resa resa, int giltigAntalResor, int giltigAntalDagar, int pris) {
-		if(biljettnamn == null) { //TODO borde vara isempty fr stringutils
-			throw new InvalidParameterException("namn is null");
-		}
-		if(resa == null) { //TODO borde vara notnull fr ??
-			throw new InvalidParameterException("resa is null");
-		}
-		if(giltigAntalResor <= 0) {
-			throw new InvalidParameterException("giltigAntalResor is below 1");
-		}
-		if(giltigAntalDagar <= 0) {
-			throw new InvalidParameterException("giltigAntalDagar is below 1");
-		}
-		if(pris < 0) {
-			throw new InvalidParameterException("pris is below 0");
-		}
+		Asserter.isNotEmpty(biljettnamn, "biljettnamn must not be null or empty");
+		Asserter.isNotNull(resa, "resa must not be null");
+		Validator.isTrue(giltigAntalResor > 0, "giltigAntalResor is below 1");
+		Validator.isTrue(giltigAntalDagar > 0, "giltigAntalDagar is below 1");
+		Validator.isTrue(pris >= 0, "pris is below 0");
 		
 		return new Configbiljett(biljettnamn, resa, giltigAntalResor, giltigAntalDagar, pris);
 	}
