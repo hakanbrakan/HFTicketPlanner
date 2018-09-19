@@ -2,7 +2,6 @@ package se.frihak.ticketplanner.biljett;
 
 import java.io.PrintStream;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import se.frihak.ticketplanner.Ticketcreator;
@@ -51,11 +50,9 @@ public class Biljettplan extends TicketplannerBase {
 	@Override
 	public String toString() {
 		StringBuffer buf = new StringBuffer();
-		for (Iterator<Biljett> iter = biljetter.iterator(); iter.hasNext();) {
-			Biljett biljett = iter.next();
+		for (Biljett biljett : biljetter) {
 			buf.append(biljett);
 			buf.append(" ");
-
 		}
 
 		return buf.toString();
@@ -70,10 +67,8 @@ public class Biljettplan extends TicketplannerBase {
 	public int getPrice() {
 		int totalpris = 0;
 
-		Iterator<Biljett> iter = biljetter.iterator();
-		while (iter.hasNext()) {
-			Biljett bilj = iter.next();
-			totalpris += bilj.getPris();
+		for (Biljett biljett : biljetter) {
+			totalpris += biljett.getPris();
 		}
 
 		return totalpris;
@@ -92,8 +87,7 @@ public class Biljettplan extends TicketplannerBase {
 	}
 
 	public void write(PrintStream p) {
-		for (Iterator<Biljett> iter = biljetter.iterator(); iter.hasNext();) {
-			Biljett biljett = iter.next();
+		for (Biljett biljett : biljetter) {
 			biljett.write(p);
 		}
 	}

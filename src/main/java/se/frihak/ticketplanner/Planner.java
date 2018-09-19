@@ -2,7 +2,6 @@ package se.frihak.ticketplanner;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
 import java.util.Vector;
@@ -36,8 +35,7 @@ public class Planner extends TicketplannerBase {
 		// Skapa alla resor mellan första och sista dag
 		List<Resa> reseplan = new ArrayList<Resa>(dagPlan.size());
 
-		for (Iterator<Dag> iter = dagPlan.iterator(); iter.hasNext();) {
-			Dag day = iter.next();
+		for (Dag day : dagPlan) {
 			int antalResor = getAntalResor(day, props);
 
 			for (int i = 0; i < antalResor; i++) {
@@ -78,13 +76,9 @@ public class Planner extends TicketplannerBase {
 		List<Biljettplan> plan = new ArrayList<Biljettplan>();
 		plan.add(new Biljettplan());
 
-		for (Iterator<Resa> resorIter = resor.iterator(); resorIter.hasNext();) {
-			Resa resa = resorIter.next();
-
+		for (Resa resa : resor) {
 			Vector<Biljettplan> vec = new Vector<Biljettplan>();
-			for (Iterator<Biljettplan> planIter = plan.iterator(); planIter.hasNext();) {
-				Biljettplan biljettplan = planIter.next();
-
+			for (Biljettplan biljettplan : plan) {
 				List<Biljettplan> planArray = biljettplan.planera(resa, ticketcreator);
 				vec.addAll(planArray);
 			}
@@ -113,10 +107,7 @@ public class Planner extends TicketplannerBase {
 		// Sortera alla planer på sista giltighetsdag
 		Collections.sort(plan, new LastDateComparator());
 
-		Iterator<Biljettplan> iter = plan.iterator();
-		// Biljettplan oldPlan = null; //Endast för debugging
-		while (iter.hasNext()) {
-			Biljettplan bp = iter.next();
+		for (Biljettplan bp : plan) {
 			if (oldDay.equals(bp.getSistaGiltighetsdag()) && planeringsdag.equals(oldDay)) {
 				// Samma dag, därför ska vi rensa bort denna
 				// Stoppa alltså inte in den i den nya listan
@@ -125,7 +116,6 @@ public class Planner extends TicketplannerBase {
 			} else {
 				nyLista.add(bp);
 				oldDay = bp.getSistaGiltighetsdag();
-				// oldPlan = bp;
 			}
 		}
 
