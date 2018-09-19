@@ -6,8 +6,6 @@ import static org.junit.Assert.assertTrue;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -107,15 +105,6 @@ public class DagTest {
 
 		Dag dag3 = new Dag("2007-05-25");
 		assertFalse(dag1.before(dag3));
-	}
-
-	@Test
-	public void testGetToday() {
-		Dag today = Dag.getToday();
-
-		Calendar cal = new GregorianCalendar();
-		String formattedDate = formatter.format(cal.getTime());
-		assertEquals(formattedDate, today.toString());
 	}
 
 	@Test(expected = IllegalArgumentException.class)

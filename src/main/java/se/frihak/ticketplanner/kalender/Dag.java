@@ -87,9 +87,4 @@ public class Dag extends TicketplannerBase {
 
 		return dagar[veckodag];
 	}
-
-	public static Dag getToday() {
-		// TODO kolla om denna metod verkligen används
-		return new Dag(new GregorianCalendar());
-	}
 }
