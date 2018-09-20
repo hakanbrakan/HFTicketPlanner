@@ -9,9 +9,6 @@ import se.frihak.ticketplanner.biljett.Biljettplan;
 
 public class HFTicketplanner {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		try {
 			PlannerUtility util = new PlannerUtility();
@@ -26,6 +23,5 @@ public class HFTicketplanner {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
 }

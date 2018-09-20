@@ -33,20 +33,10 @@ abstract public class Biljett extends TicketplannerBase {
 		this.forstaGiltighetsdag = forstaGiltighetsdag;
 	}
 
-	/**
-	 * Hämtar biljettens sista giltighetsdag
-	 * 
-	 * @return sistaGiltighetsdag
-	 */
 	public Dag getSistaGiltighetsdag() {
 		return sistaGiltighetsdag;
 	}
 
-	/**
-	 * Sätter sista giltighetsdag på biljetten
-	 * 
-	 * @param sistaGiltighetsdag
-	 */
 	public void setSistaGiltighetsdag(Dag sistaGiltighetsdag) {
 		this.sistaGiltighetsdag = sistaGiltighetsdag;
 	}

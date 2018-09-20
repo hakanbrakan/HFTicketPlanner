@@ -58,12 +58,6 @@ public class Biljettplan extends TicketplannerBase {
 		return buf.toString();
 	}
 
-	/**
-	 * Hämtar biljettplanens totalpris, adderat av tidigare planer samt alla
-	 * biljetter.
-	 * 
-	 * @return Price
-	 */
 	public int getPrice() {
 		int totalpris = 0;
 
