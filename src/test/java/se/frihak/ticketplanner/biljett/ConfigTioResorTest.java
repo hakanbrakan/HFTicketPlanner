@@ -7,7 +7,6 @@ import static org.junit.Assert.assertTrue;
 import java.util.Properties;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import se.frihak.ticketplanner.kalender.Dag;
@@ -43,10 +42,9 @@ public class ConfigTioResorTest {
 		assertFalse(tioresor.add(new Resa(new Dag("2007-12-12"))));
 	}
 
-	@Ignore
 	@Test
 	public void testTioResorToString() {
-		assertEquals("TioResor 2007-11-12", tioresor.toString());
+		assertEquals("Tioresor 2007-11-12 t.o.m 2007-12-11", tioresor.toString());
 	}
 	
 	

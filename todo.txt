@@ -1,19 +1,10 @@
 
 Todo
 ====
-public class Customer
-   public Customer(final String data)
-      notNull(data);
-      isTrue(xxx.isValid(data));
-      parse
-      assign fields
-
-
 Använda validators http://www.baeldung.com/javax-validation - org.apache.commons.lang3.Validate ?
 org.apache.commons.lang3.StringUtils
 Ny biljettyp - poäng, lång giltighetstid, x resor 0kr
 10biljett kan sparas o man har flera mellan
-Årskort
 Vid "rensa plan" ta bort den plan som har minst antal månadskort - kan vara samma sak som minst antal biljetter
 Använda java8 localdate -ersätta eller ändra Dag.java
 Maxa coverage
@@ -25,6 +16,7 @@ Bygga med Maven
 Klart
 =====
 2018-09-16
+Årskort
 Maven version 2.0.0 snapshot
 Skapa konfigurerbar biljettyp som finns i konfigfilen
 
