@@ -33,7 +33,7 @@ public class DagTest {
 
 	@Test
 	public void testEqualsObject() {
-		assertEquals(dag1, dag1);
+		assertTrue(dag1.equals(dag1));
 		assertFalse(dag1.equals(dag2));
 	}
 
