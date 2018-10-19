@@ -5,12 +5,15 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Properties;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import se.frihak.ticketplanner.biljett.Biljettplan;
 import se.frihak.ticketplanner.kalender.Dag;
 import se.frihak.ticketplanner.kalender.Resa;
 
 public class Planner extends TicketplannerBase {
+	private static final Logger LOGGER = Logger.getLogger(Planner.class.getName() );
 
 	private int counter = 0;
 
@@ -111,7 +114,7 @@ public class Planner extends TicketplannerBase {
 			if (oldDay.equals(bp.getSistaGiltighetsdag()) && planeringsdag.equals(oldDay)) {
 				// Samma dag, därför ska vi rensa bort denna
 				// Stoppa alltså inte in den i den nya listan
-				System.out.println(counter  ++ + " Rensar plan: " + bp.toString());
+				LOGGER.log(Level.FINER, "{0} Rensar plan: {1}", new Object[] {counter++, bp.toString()});
 
 			} else {
 				nyLista.add(bp);
