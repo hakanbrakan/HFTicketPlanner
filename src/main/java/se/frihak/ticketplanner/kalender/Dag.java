@@ -14,7 +14,7 @@ public class Dag extends TicketplannerBase {
 		dagen = LocalDate.parse(newDag);
 	}
 
-	public Dag(LocalDate enDag) {
+	private Dag(LocalDate enDag) {
 		dagen = enDag;
 	}
 
