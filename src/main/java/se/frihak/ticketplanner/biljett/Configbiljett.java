@@ -19,8 +19,7 @@ public class Configbiljett extends Biljett {
 		setPris(pris);
 		setForstaGiltighetsdag(resa.getDag());
 
-		Dag sistaDag = (Dag) resa.getDag().clone();
-		sistaDag.plusDays(giltigAntalDagar - 1); // Giltighetstiden är inkluderat idag, därför -1 här
+		Dag sistaDag = resa.getDag().plusDays(giltigAntalDagar - 1); // Giltighetstiden är inkluderat idag, därför -1 här
 		setSistaGiltighetsdag(sistaDag);
 
 		add(resa); //TODO Denna måste tydligen ligga sist. Är det bra

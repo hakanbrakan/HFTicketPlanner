@@ -47,8 +47,8 @@ public class ConfigManadTest {
 		assertFalse(manad.isValid(resa3));
 
 		Dag dag4 = new Dag("2007-11-12");
-		dag4.plusDays(34);
-		Resa resa4 = new Resa(dag4);
+		Dag temp = dag4.plusDays(34);
+		Resa resa4 = new Resa(temp);
 		assertFalse(manad.isValid(resa4));
 	}
 

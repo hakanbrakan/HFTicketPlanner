@@ -19,7 +19,7 @@ public class Dag extends TicketplannerBase {
 	}
 
 	public Dag getNextDag() {
-		return new Dag(dagen.plusDays(1));
+		return plusDays(1);
 	}
 
 	@Override
@@ -37,14 +37,8 @@ public class Dag extends TicketplannerBase {
 		return dagen.isBefore(anotherDay.dagen);
 	}
 
-	public void plusDays(int i) {
-		dagen = dagen.plusDays(i);
-		return;
-	}
-
-	@Override
-	public Object clone() {
-		return new Dag(dagen.toString());
+	public Dag plusDays(int i) {
+		return new Dag(dagen.plusDays(i));
 	}
 
 	public String getWeekdayFormatted() {

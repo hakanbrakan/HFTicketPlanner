@@ -2,6 +2,7 @@ package se.frihak.ticketplanner.kalender;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.text.DateFormat;
@@ -40,46 +41,38 @@ public class DagTest {
 
 	@Test
 	public void testPlusDays() {
-		dag1.plusDays(1);
+		Dag dagTest = dag1.plusDays(3);
+		assertNotEquals(dag1, dagTest);
+		
+		
+		dag1 = dag1.plusDays(1);
 		assertEquals("2007-05-26", dag1.toString());
-		dag1.plusDays(2);
+		dag1 = dag1.plusDays(2);
 		assertEquals("2007-05-28", dag1.toString());
-		dag1.plusDays(5);
+		dag1 = dag1.plusDays(5);
 		assertEquals("2007-06-02", dag1.toString());
-		dag1.plusDays(7);
+		dag1 = dag1.plusDays(7);
 		assertEquals("2007-06-09", dag1.toString());
 
 		Dag testDag = new Dag("2007-12-24");
-		testDag.plusDays(7);
+		testDag = testDag.plusDays(7);
 		assertEquals("2007-12-31", testDag.toString());
 
 		testDag = new Dag("2007-12-24");
-		testDag.plusDays(39);
+		testDag = testDag.plusDays(39);
 		assertEquals("2008-02-01", testDag.toString());
 
 		testDag = new Dag("2007-12-24");
-		testDag.plusDays(68);
+		testDag = testDag.plusDays(68);
 		assertEquals("2008-03-01", testDag.toString());
 
 		testDag = new Dag("2007-12-24");
-		testDag.plusDays(-25);
+		testDag = testDag.plusDays(-25);
 		assertEquals("2007-11-29", testDag.toString());
 
 		testDag = new Dag("2008-01-01");
-		testDag.plusDays(-2);
+		testDag = testDag.plusDays(-2);
 		assertEquals("2007-12-30", testDag.toString());
-	}
-
-	@Test
-	public void testClone() {
-		Dag dag2 = (Dag) dag1.clone();
-
-		assertEquals(dag1, dag2);
-		assertEquals(dag1.toString(), dag2.toString());
-		assertEquals(dag1.getNextDag(), dag2.getNextDag());
-
-		dag2.plusDays(1);
-		assertFalse(dag1.equals(dag2));
 	}
 
 	@Test
@@ -87,15 +80,15 @@ public class DagTest {
 		assertEquals("Fredag", dag1.getWeekdayFormatted());
 		Dag dag2 = dag1.getNextDag();
 		assertEquals("Lördag", dag2.getWeekdayFormatted());
-		dag2.plusDays(1);
+		dag2 = dag2.plusDays(1);
 		assertEquals("Söndag", dag2.getWeekdayFormatted());
-		dag2.plusDays(1);
+		dag2 = dag2.plusDays(1);
 		assertEquals("Måndag", dag2.getWeekdayFormatted());
-		dag2.plusDays(1);
+		dag2 = dag2.plusDays(1);
 		assertEquals("Tisdag", dag2.getWeekdayFormatted());
-		dag2.plusDays(1);
+		dag2 = dag2.plusDays(1);
 		assertEquals("Onsdag", dag2.getWeekdayFormatted());
-		dag2.plusDays(1);
+		dag2 = dag2.plusDays(1);
 		assertEquals("Torsdag", dag2.getWeekdayFormatted());
 	}
 

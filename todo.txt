@@ -11,7 +11,7 @@ Ny biljettyp - poäng, lång giltighetstid, x resor 0kr
 Använda validators http://www.baeldung.com/javax-validation - org.apache.commons.lang3.Validate ?
 org.apache.commons.lang3.StringUtils
 Vid "rensa plan" ta bort den plan som har minst antal månadskort - kan vara samma sak som minst antal biljetter
-Ta bort metoden clone på Dag.java
+Refaktorisera DagTest.java
 Maxa coverage
 JUnit5
 Bygga med Maven
@@ -21,6 +21,7 @@ Bygga med Maven
 Klart
 =====
 2018-10-20
+Ta bort metoden clone på Dag.java
 Använda java8 localdate - ändra Dag.java
 
 2018-10-19
