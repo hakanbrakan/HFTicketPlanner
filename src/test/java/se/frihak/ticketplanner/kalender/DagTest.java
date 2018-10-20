@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.format.DateTimeParseException;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -38,34 +39,34 @@ public class DagTest {
 	}
 
 	@Test
-	public void testAddDays() {
-		dag1.addDays(1);
+	public void testPlusDays() {
+		dag1.plusDays(1);
 		assertEquals("2007-05-26", dag1.toString());
-		dag1.addDays(2);
+		dag1.plusDays(2);
 		assertEquals("2007-05-28", dag1.toString());
-		dag1.addDays(5);
+		dag1.plusDays(5);
 		assertEquals("2007-06-02", dag1.toString());
-		dag1.addDays(7);
+		dag1.plusDays(7);
 		assertEquals("2007-06-09", dag1.toString());
 
 		Dag testDag = new Dag("2007-12-24");
-		testDag.addDays(7);
+		testDag.plusDays(7);
 		assertEquals("2007-12-31", testDag.toString());
 
 		testDag = new Dag("2007-12-24");
-		testDag.addDays(39);
+		testDag.plusDays(39);
 		assertEquals("2008-02-01", testDag.toString());
 
 		testDag = new Dag("2007-12-24");
-		testDag.addDays(68);
+		testDag.plusDays(68);
 		assertEquals("2008-03-01", testDag.toString());
 
 		testDag = new Dag("2007-12-24");
-		testDag.addDays(-25);
+		testDag.plusDays(-25);
 		assertEquals("2007-11-29", testDag.toString());
 
 		testDag = new Dag("2008-01-01");
-		testDag.addDays(-2);
+		testDag.plusDays(-2);
 		assertEquals("2007-12-30", testDag.toString());
 	}
 
@@ -77,7 +78,7 @@ public class DagTest {
 		assertEquals(dag1.toString(), dag2.toString());
 		assertEquals(dag1.getNextDag(), dag2.getNextDag());
 
-		dag2.addDays(1);
+		dag2.plusDays(1);
 		assertFalse(dag1.equals(dag2));
 	}
 
@@ -86,28 +87,28 @@ public class DagTest {
 		assertEquals("Fredag", dag1.getWeekdayFormatted());
 		Dag dag2 = dag1.getNextDag();
 		assertEquals("Lördag", dag2.getWeekdayFormatted());
-		dag2.addDays(1);
+		dag2.plusDays(1);
 		assertEquals("Söndag", dag2.getWeekdayFormatted());
-		dag2.addDays(1);
+		dag2.plusDays(1);
 		assertEquals("Måndag", dag2.getWeekdayFormatted());
-		dag2.addDays(1);
+		dag2.plusDays(1);
 		assertEquals("Tisdag", dag2.getWeekdayFormatted());
-		dag2.addDays(1);
+		dag2.plusDays(1);
 		assertEquals("Onsdag", dag2.getWeekdayFormatted());
-		dag2.addDays(1);
+		dag2.plusDays(1);
 		assertEquals("Torsdag", dag2.getWeekdayFormatted());
 	}
 
 	@Test
 	public void testBefore() {
-		assertTrue(dag1.before(dag2));
-		assertFalse(dag2.before(dag2));
+		assertTrue(dag1.isBefore(dag2));
+		assertFalse(dag2.isBefore(dag2));
 
 		Dag dag3 = new Dag("2007-05-25");
-		assertFalse(dag1.before(dag3));
+		assertFalse(dag1.isBefore(dag3));
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test(expected = DateTimeParseException.class)
 	public void testIllegalDate() {
 		new Dag("1982-13-45");
 	}

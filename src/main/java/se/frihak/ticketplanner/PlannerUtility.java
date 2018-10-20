@@ -26,7 +26,7 @@ public class PlannerUtility extends TicketplannerBase {
 		list.add(firstDay);
 		Dag tempDay = firstDay.getNextDag();
 
-		while (tempDay.before(lastDay)) {
+		while (tempDay.isBefore(lastDay)) {
 			list.add(tempDay);
 			tempDay = tempDay.getNextDag();
 		}

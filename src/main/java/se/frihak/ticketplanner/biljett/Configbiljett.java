@@ -20,7 +20,7 @@ public class Configbiljett extends Biljett {
 		setForstaGiltighetsdag(resa.getDag());
 
 		Dag sistaDag = (Dag) resa.getDag().clone();
-		sistaDag.addDays(giltigAntalDagar - 1); // Giltighetstiden är inkluderat idag, därför -1 här
+		sistaDag.plusDays(giltigAntalDagar - 1); // Giltighetstiden är inkluderat idag, därför -1 här
 		setSistaGiltighetsdag(sistaDag);
 
 		add(resa); //TODO Denna måste tydligen ligga sist. Är det bra
@@ -28,8 +28,8 @@ public class Configbiljett extends Biljett {
 
 	@Override
 	public boolean isValid(Resa resa) {
-		return resa.getDag().before(getSistaGiltighetsdag().getNextDag())
-				&& getForstaGiltighetsdag().before(resa.getDag().getNextDag())
+		return resa.getDag().isBefore(getSistaGiltighetsdag().getNextDag())
+				&& getForstaGiltighetsdag().isBefore(resa.getDag().getNextDag())
 				&& resor.size() < giltigAntalResor;
 	}
 
@@ -40,7 +40,7 @@ public class Configbiljett extends Biljett {
 
 	@Override
 	public String toString() {
-		if (getForstaGiltighetsdag().before(getSistaGiltighetsdag())) {
+		if (getForstaGiltighetsdag().isBefore(getSistaGiltighetsdag())) {
 			return namn +" " + super.getForstaGiltighetsdag() + " t.o.m " + getSistaGiltighetsdag();
 		}
 		return namn + " " + super.getForstaGiltighetsdag();

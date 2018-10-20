@@ -1,90 +1,57 @@
 package se.frihak.ticketplanner.kalender;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
+import java.time.LocalDate;
+import java.time.format.TextStyle;
+import java.util.Locale;
 
 import se.frihak.ticketplanner.TicketplannerBase;
 
 public class Dag extends TicketplannerBase {
-	private String strDag;
-	private Calendar dag = null;
-	DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+
+	private LocalDate dagen;
 
 	public Dag(String newDag) {
-		strDag = newDag;
-		dag = new GregorianCalendar();
-
-		try {
-			dag.setTime(formatter.parse(strDag));
-			if( ! formatter.format(dag.getTime()).equalsIgnoreCase(strDag)) {
-				throw new ParseException("fel", 1);
-			}
-		} catch (ParseException e) {
-			strDag = "2999-12-31";
-			dag.setTime(new Date(strDag));
-		}
+		dagen = LocalDate.parse(newDag);
 	}
 
-	public Dag(Calendar nyDag) {
-		strDag = formatter.format(nyDag.getTime());
-		dag = nyDag;
+	public Dag(LocalDate enDag) {
+		dagen = enDag;
 	}
 
 	public Dag getNextDag() {
-		Dag nextDag = new Dag((Calendar) dag.clone());
-		nextDag.addDays(1);
-		return nextDag;
+		return new Dag(dagen.plusDays(1));
 	}
 
 	@Override
 	public boolean equals(Object arg0) {
 		Dag andraDagen = (Dag) arg0;
-
-		if (strDag.equals(andraDagen.strDag)) {
-			return true;
-		}
-
-		return false;
+		return dagen.isEqual(andraDagen.dagen);
 	}
 
 	@Override
 	public String toString() {
-		return strDag;
+		return dagen.toString();
 	}
 
-	public boolean before(Dag anotherDay) {
-		return dag.before(anotherDay.dag);
+	public boolean isBefore(Dag anotherDay) {
+		return dagen.isBefore(anotherDay.dagen);
 	}
 
-	public void addDays(int i) {
-		dag.add(GregorianCalendar.DAY_OF_MONTH, i);
-		strDag = formatter.format(dag.getTime());
+	public void plusDays(int i) {
+		dagen = dagen.plusDays(i);
 		return;
 	}
 
 	@Override
 	public Object clone() {
-		Dag nyDag = new Dag((Calendar) dag.clone());
-
-		return nyDag;
+		return new Dag(dagen.toString());
 	}
 
 	public String getWeekdayFormatted() {
-		int veckodag = dag.get(Calendar.DAY_OF_WEEK);
+		String veckodag = dagen.getDayOfWeek().getDisplayName(TextStyle.FULL , Locale.getDefault());
+		String v1 = veckodag.substring(0, 1).toUpperCase();
+		String v2 = veckodag.substring(1);
 
-		String[] dagar = new String[8];
-		dagar[1] = "Söndag";
-		dagar[2] = "Måndag";
-		dagar[3] = "Tisdag";
-		dagar[4] = "Onsdag";
-		dagar[5] = "Torsdag";
-		dagar[6] = "Fredag";
-		dagar[7] = "Lördag";
-
-		return dagar[veckodag];
+		return v1+v2;
 	}
 }

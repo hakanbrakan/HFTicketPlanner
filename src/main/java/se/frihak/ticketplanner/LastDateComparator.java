@@ -11,9 +11,9 @@ public class LastDateComparator implements Comparator<Biljettplan> {
 		Biljettplan plan2 = arg1;
 
 		int result = 0;
-		if (plan1.getSistaGiltighetsdag().before(plan2.getSistaGiltighetsdag())) {
+		if (plan1.getSistaGiltighetsdag().isBefore(plan2.getSistaGiltighetsdag())) {
 			result = -1;
-		} else if (plan2.getSistaGiltighetsdag().before(plan1.getSistaGiltighetsdag())) {
+		} else if (plan2.getSistaGiltighetsdag().isBefore(plan1.getSistaGiltighetsdag())) {
 			result = 1;
 		} else {
 			// Samma sista giltighetsdag, Sortera då på pris under samma datum
