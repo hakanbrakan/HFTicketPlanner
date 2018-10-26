@@ -2,10 +2,6 @@
 Todo
 ====
 Testa threads
-10biljett kan sparas o man har flera mellan
-	Måste vi införa en parameter om biljetten är delbar i propertiesfilen? tex arDelbar. Default nej
-	Hur hanterar vi att en plan kan innehålla två giltiga biljetter tex månad + tio
-		tex först använda den som ej är delbar
 Ny biljettyp - poäng, lång giltighetstid, x resor 0kr
 	Måste hantera att man kan köpa max Xst såna biljetter, tex räkna hur många man redan använt i planen.
 Använda validators http://www.baeldung.com/javax-validation - org.apache.commons.lang3.Validate ?
@@ -20,6 +16,12 @@ Bygga med Maven
 
 Klart
 =====
+2018-10-26
+10biljett kan sparas o man har flera mellan
+	Måste vi införa en parameter om biljetten är delbar i propertiesfilen? tex arDelbar. Default nej
+	Hur hanterar vi att en plan kan innehålla två giltiga biljetter tex månad + tio
+		tex först använda den som ej är delbar
+
 2018-10-20
 Ta bort metoden clone på Dag.java
 Använda java8 localdate - ändra Dag.java

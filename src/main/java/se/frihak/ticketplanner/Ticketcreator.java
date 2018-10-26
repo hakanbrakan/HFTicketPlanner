@@ -27,7 +27,8 @@ public class Ticketcreator {
 			int pris = Integer.parseInt(props.getProperty(enBiljettyp+"Pris", "0"));
 			int giltigAntalDagar = Integer.parseInt(props.getProperty(enBiljettyp+"GiltigAntalDagar", "0"));
 			int giltigAntalResor = Integer.parseInt(props.getProperty(enBiljettyp+"GiltigAntalResor", "0"));
-			Configbiljett enBiljett = Configbiljett.getInstance(enBiljettyp, resa, giltigAntalResor , giltigAntalDagar, pris);
+			Biljett.DELBAR arDelbar = Boolean.parseBoolean(props.getProperty(enBiljettyp+"Delbar")) ? Biljett.DELBAR.JA:Biljett.DELBAR.NEJ;
+			Configbiljett enBiljett = Configbiljett.getInstance(enBiljettyp, resa, giltigAntalResor , giltigAntalDagar, pris, arDelbar);
 			lista.add(enBiljett);
 		}
 

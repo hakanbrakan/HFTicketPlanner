@@ -3,6 +3,7 @@ package se.frihak.ticketplanner.biljett;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import se.frihak.ticketplanner.Ticketcreator;
 import se.frihak.ticketplanner.TicketplannerBase;
@@ -23,28 +24,30 @@ public class Biljettplan extends TicketplannerBase {
 	public List<Biljettplan> planera(Resa resa, Ticketcreator ticketcreator) {
 		List<Biljettplan> nyaPlaner = new ArrayList<Biljettplan>();
 
-		// Kolla om denna plan redan har en giltig biljett. Om ja, så returneras denna
-		// plan
-		if (biljetter.size() > 0) {
-			Biljett biljett = biljetter.get(biljetter.size() - 1);
-			if (biljett.isValid(resa)) {
-				biljett.add(resa);
+		Optional<Biljett> eventuellBiljett = biljetter.stream().filter(biljett -> biljett.isValid(resa) && biljett.isDelbar() == Biljett.DELBAR.NEJ).findFirst();
+		if (eventuellBiljett.isPresent()) {
+			eventuellBiljett.get().add(resa);
+			nyaPlaner.add(this);
+		} else {
+			Optional<Biljett> evBiljett = biljetter.stream().filter(biljett -> biljett.isValid(resa) && biljett.isDelbar() == Biljett.DELBAR.JA).findFirst();
+			if (evBiljett.isPresent()) {
+				evBiljett.get().add(resa);
 				nyaPlaner.add(this);
-				return nyaPlaner;
+
+				for (Biljett oneTicket : ticketcreator.createAllTickets(resa)) {
+					if( ! evBiljett.get().getNamn().equals(oneTicket.getNamn())) {
+						nyaPlaner.add(new Biljettplan(this, oneTicket));
+					}
+				}
+			} else {
+				// Skapa nya planer, en för varje biljetttyp
+				for (Biljett oneTicket : ticketcreator.createAllTickets(resa)) {
+					nyaPlaner.add(new Biljettplan(this, oneTicket));
+				}
 			}
 		}
 
-		// Skapa nya planer, en för varje biljetttyp
-		for (Biljett oneTicket : ticketcreator.createAllTickets(resa)) {
-			nyaPlaner.add(new Biljettplan(this, oneTicket));
-		}
-
 		return nyaPlaner;
-	}
-
-	@Override
-	protected void finalize() throws Throwable {
-		super.finalize();
 	}
 
 	@Override
