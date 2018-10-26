@@ -15,9 +15,11 @@ abstract public class Biljett extends TicketplannerBase {
 	abstract public boolean isValid(Resa resa);
 
 	protected ArrayList<Resa> resor = null;
+	private DELBAR arDelbar = DELBAR.NEJ;
 
-	public Biljett() {
+	public Biljett(DELBAR delbar) {
 		super();
+		this.arDelbar = delbar;
 		resor = new ArrayList<Resa>();
 	}
 
@@ -55,4 +57,14 @@ abstract public class Biljett extends TicketplannerBase {
 	}
 
 	abstract public void write(PrintStream p);
+	abstract public String getNamn();
+
+	public DELBAR isDelbar() {
+		return arDelbar ;
+	}
+	
+	public enum DELBAR {
+		JA,
+		NEJ
+	}
 }

@@ -12,8 +12,8 @@ public class Configbiljett extends Biljett {
 	private String namn;
 	private int giltigAntalResor;
 
-	private Configbiljett(String biljettnamn, Resa resa, int giltigAntalResor, int giltigAntalDagar, int pris) {
-		super();
+	private Configbiljett(String biljettnamn, Resa resa, int giltigAntalResor, int giltigAntalDagar, int pris, DELBAR arDelbar) {
+		super(arDelbar);
 		this.namn = biljettnamn;
 		this.giltigAntalResor = giltigAntalResor;
 		setPris(pris);
@@ -45,14 +45,19 @@ public class Configbiljett extends Biljett {
 		return namn + " " + super.getForstaGiltighetsdag();
 	}
 
-	public static Configbiljett getInstance(String biljettnamn, Resa resa, int giltigAntalResor, int giltigAntalDagar, int pris) {
+	public static Configbiljett getInstance(String biljettnamn, Resa resa, int giltigAntalResor, int giltigAntalDagar, int pris, DELBAR arDelbar) {
 		Asserter.isNotEmpty(biljettnamn, "biljettnamn must not be null or empty");
 		Asserter.isNotNull(resa, "resa must not be null");
+		Asserter.isNotNull(arDelbar, "delbar must not be null");
 		Validator.isTrue(giltigAntalResor > 0, "giltigAntalResor is below 1");
 		Validator.isTrue(giltigAntalDagar > 0, "giltigAntalDagar is below 1");
 		Validator.isTrue(pris >= 0, "pris is below 0");
 		
-		return new Configbiljett(biljettnamn, resa, giltigAntalResor, giltigAntalDagar, pris);
+		return new Configbiljett(biljettnamn, resa, giltigAntalResor, giltigAntalDagar, pris, arDelbar);
+	}
+
+	public static Configbiljett getInstance(String biljettnamn, Resa resa, int giltigAntalResor, int giltigAntalDagar, int pris) {
+		return getInstance(biljettnamn, resa, giltigAntalResor, giltigAntalDagar, pris, DELBAR.NEJ);
 	}
 	
 	@Override
@@ -75,4 +80,8 @@ public class Configbiljett extends Biljett {
 		return sistaDag;
 	}
 
+	@Override
+	public String getNamn() {
+		return namn;
+	}
 }
