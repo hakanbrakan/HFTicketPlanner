@@ -36,4 +36,14 @@ public class HFTicketplannerTest {
 		final List<String> linesExpected = Files.readAllLines(Paths.get(getClass().getResource("/HFTicketplannerReport_20150911.txt").getPath()));
 		assertEquals(linesExpected, linesActual);
 	}
+
+	@Test
+	public void improveCodeCoverageWithThrownFileNotFound() throws IOException {
+		HFTicketplanner.main(new String[] { "XXXXXXXXXXXXXXXX" });
+	}
+
+	@Test
+	public void justToImproveCodeCoverage() throws IOException {
+		new HFTicketplanner();
+	}
 }

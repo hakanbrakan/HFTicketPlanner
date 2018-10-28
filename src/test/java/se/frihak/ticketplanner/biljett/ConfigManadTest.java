@@ -101,4 +101,22 @@ public class ConfigManadTest {
 	public void testGetPris() {
 		assertEquals(1900, manad.getPris());
 	}
+
+	@Test(expected=IllegalArgumentException.class)
+	public void shouldFailWithTooLowAntalResor() {
+		Resa resa2 = new Resa(new Dag("2007-11-19"));
+		Configbiljett.getInstance("Månadskort", resa2, -1, 30, 1900);
+	}
+
+	@Test(expected=IllegalArgumentException.class)
+	public void shouldFailWithTooLowAntalDagar() {
+		Resa resa2 = new Resa(new Dag("2007-11-19"));
+		Configbiljett.getInstance("Månadskort", resa2, 3, -3, 1900);
+	}
+
+	@Test(expected=IllegalArgumentException.class)
+	public void shouldFailWithTooLowPrice() {
+		Resa resa2 = new Resa(new Dag("2007-11-19"));
+		Configbiljett.getInstance("Månadskort", resa2, 3, 30, -4);
+	}
 }

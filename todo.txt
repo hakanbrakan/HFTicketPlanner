@@ -1,8 +1,10 @@
 
 Todo
 ====
+Flytta improveCodeCoverageWithThrownFileNotFound som idag skriver på consolen
 Testa threads
 Ny biljettyp - poäng, lång giltighetstid, x resor 0kr
+	Ev struntar jag i denna o använder poäng när planen säger enkel
 	Måste hantera att man kan köpa max Xst såna biljetter, tex räkna hur många man redan använt i planen.
 Använda validators http://www.baeldung.com/javax-validation - org.apache.commons.lang3.Validate ?
 org.apache.commons.lang3.StringUtils
@@ -16,6 +18,9 @@ Bygga med Maven
 
 Klart
 =====
+2018-10-28
+Maxa coverage
+
 2018-10-26
 10biljett kan sparas o man har flera mellan
 	Måste vi införa en parameter om biljetten är delbar i propertiesfilen? tex arDelbar. Default nej
