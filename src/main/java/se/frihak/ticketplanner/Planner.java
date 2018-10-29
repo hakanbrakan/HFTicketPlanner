@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Properties;
-import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -73,26 +72,21 @@ public class Planner extends TicketplannerBase {
 	}
 
 	private List<Biljettplan> createBiljettplan(List<Resa> resor, Ticketcreator ticketcreator) {
-
-		// Skapa en testmetod JUnit om den blir public
-
-		List<Biljettplan> plan = new ArrayList<Biljettplan>();
+		List<Biljettplan> plan = new ArrayList<>();
 		plan.add(new Biljettplan());
 
 		for (Resa resa : resor) {
-			Vector<Biljettplan> vec = new Vector<Biljettplan>();
+			List<Biljettplan> tempLista = new ArrayList<>();
 			for (Biljettplan biljettplan : plan) {
-				List<Biljettplan> planArray = biljettplan.planera(resa, ticketcreator);
-				vec.addAll(planArray);
+				tempLista.addAll(biljettplan.planera(resa, ticketcreator));
 			}
 
 			plan.clear();
-			plan.addAll(vec);
+			plan.addAll(tempLista);
 
 			plan = rensaPlaner(plan, resa.getDag());
 		}
 
-		// Sortera alla planer på pris??
 		Collections.sort(plan, new PriceComparator());
 
 		return plan;

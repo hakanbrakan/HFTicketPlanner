@@ -7,7 +7,7 @@ Ny biljettyp - poäng, lång giltighetstid, x resor 0kr
 	Måste hantera att man kan köpa max Xst såna biljetter, tex räkna hur många man redan använt i planen.
 Använda validators http://www.baeldung.com/javax-validation - org.apache.commons.lang3.Validate ?
 org.apache.commons.lang3.StringUtils
-Vid "rensa plan" ta bort den plan som har minst antal månadskort - kan vara samma sak som minst antal biljetter
+Vid "rensa plan" ta bort den plan som har mest antal månadskort - kan vara samma sak som minst antal biljetter
 Refaktorisera DagTest.java
 Maxa coverage
 JUnit5
