@@ -38,11 +38,6 @@ public class HFTicketplannerTest {
 	}
 
 	@Test
-	public void improveCodeCoverageWithThrownFileNotFound() throws IOException {
-		HFTicketplanner.main(new String[] { "XXXXXXXXXXXXXXXX" });
-	}
-
-	@Test
 	public void justToImproveCodeCoverage() throws IOException {
 		new HFTicketplanner();
 	}

@@ -1,7 +1,6 @@
 
 Todo
 ====
-Flytta improveCodeCoverageWithThrownFileNotFound som idag skriver på consolen
 Testa threads
 Ny biljettyp - poäng, lång giltighetstid, x resor 0kr
 	Ev struntar jag i denna o använder poäng när planen säger enkel
@@ -18,6 +17,9 @@ Bygga med Maven
 
 Klart
 =====
+2018-10-29
+Flytta improveCodeCoverageWithThrownFileNotFound som idag skriver på consolen
+
 2018-10-28
 Maxa coverage
 
