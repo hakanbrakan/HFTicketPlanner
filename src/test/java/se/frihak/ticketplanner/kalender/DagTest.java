@@ -44,7 +44,6 @@ public class DagTest {
 		Dag dagTest = dag1.plusDays(3);
 		assertNotEquals(dag1, dagTest);
 		
-		
 		dag1 = dag1.plusDays(1);
 		assertEquals("2007-05-26", dag1.toString());
 		dag1 = dag1.plusDays(2);
@@ -53,24 +52,39 @@ public class DagTest {
 		assertEquals("2007-06-02", dag1.toString());
 		dag1 = dag1.plusDays(7);
 		assertEquals("2007-06-09", dag1.toString());
+	}
 
+	@Test
+	public void framTillArsskifte() {
 		Dag testDag = new Dag("2007-12-24");
 		testDag = testDag.plusDays(7);
 		assertEquals("2007-12-31", testDag.toString());
+	}
 
-		testDag = new Dag("2007-12-24");
+	@Test
+	public void overArsskifte() {
+		Dag testDag = new Dag("2007-12-24");
 		testDag = testDag.plusDays(39);
 		assertEquals("2008-02-01", testDag.toString());
+	}
 
-		testDag = new Dag("2007-12-24");
+	@Test
+	public void overArsskifteOchFebruari() {
+		Dag testDag = new Dag("2007-12-24");
 		testDag = testDag.plusDays(68);
 		assertEquals("2008-03-01", testDag.toString());
+	}
 
-		testDag = new Dag("2007-12-24");
+	@Test
+	public void backaOverManadsskifte() {
+		Dag testDag = new Dag("2007-12-24");
 		testDag = testDag.plusDays(-25);
 		assertEquals("2007-11-29", testDag.toString());
+	}
 
-		testDag = new Dag("2008-01-01");
+	@Test
+	public void backaOverArsskifte() {
+		Dag testDag = new Dag("2008-01-01");
 		testDag = testDag.plusDays(-2);
 		assertEquals("2007-12-30", testDag.toString());
 	}
