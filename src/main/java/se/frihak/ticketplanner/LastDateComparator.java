@@ -6,10 +6,8 @@ import se.frihak.ticketplanner.biljett.Biljettplan;
 
 public class LastDateComparator implements Comparator<Biljettplan> {
 
-	public int compare(Biljettplan arg0, Biljettplan arg1) {
-		Biljettplan plan1 = arg0;
-		Biljettplan plan2 = arg1;
-
+	@Override
+	public int compare(Biljettplan plan1, Biljettplan plan2) {
 		int result = 0;
 		if (plan1.getSistaGiltighetsdag().isBefore(plan2.getSistaGiltighetsdag())) {
 			result = -1;
@@ -19,7 +17,7 @@ public class LastDateComparator implements Comparator<Biljettplan> {
 			// Samma sista giltighetsdag, Sortera då på pris under samma datum
 
 			PriceComparator priceComp = new PriceComparator();
-			result = priceComp.compare(arg0, arg1);
+			result = priceComp.compare(plan1, plan2);
 		}
 
 		return result;

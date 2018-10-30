@@ -6,10 +6,8 @@ import se.frihak.ticketplanner.biljett.Biljettplan;
 
 public class PriceComparator implements Comparator<Biljettplan> {
 
-	public int compare(Biljettplan arg0, Biljettplan arg1) {
-		Biljettplan plan1 = arg0;
-		Biljettplan plan2 = arg1;
-
+	@Override
+	public int compare(Biljettplan plan1, Biljettplan plan2) {
 		int result = 0;
 		if (plan1.getPrice() < plan2.getPrice()) {
 			result = -1;

@@ -2,7 +2,6 @@
 Todo
 ====
 Rensa kommentarer
-Refaktorisera PriceComparator, LastDateComparator
 Vid "rensa plan" ta bort den plan som har mest antal månadskort - kan vara samma sak som minst antal biljetter
 Maxa coverage
 JUnit5
@@ -22,6 +21,7 @@ org.apache.commons.lang3.StringUtils
 Klart
 =====
 2018-10-30
+Refaktorisera PriceComparator, LastDateComparator
 Fixa generics enl java7 arraylist<>
 Refaktorisera DagTest.java
 
