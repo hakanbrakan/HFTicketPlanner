@@ -11,7 +11,7 @@ import se.frihak.ticketplanner.kalender.Dag;
 import se.frihak.ticketplanner.kalender.Resa;
 
 public class Biljettplan extends TicketplannerBase {
-	private List<Biljett> biljetter = new ArrayList<Biljett>();
+	private List<Biljett> biljetter = new ArrayList<>();
 
 	public Biljettplan(Biljettplan biljettplan, Biljett bilj) {
 		biljetter.addAll(biljettplan.biljetter);
@@ -22,7 +22,7 @@ public class Biljettplan extends TicketplannerBase {
 	}
 
 	public List<Biljettplan> planera(Resa resa, Ticketcreator ticketcreator) {
-		List<Biljettplan> nyaPlaner = new ArrayList<Biljettplan>();
+		List<Biljettplan> nyaPlaner = new ArrayList<>();
 
 		Optional<Biljett> eventuellBiljett = biljetter.stream().filter(biljett -> biljett.isValid(resa) && biljett.isDelbar() == Biljett.DELBAR.NEJ).findFirst();
 		if (eventuellBiljett.isPresent()) {

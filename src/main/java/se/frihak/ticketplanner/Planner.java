@@ -35,7 +35,7 @@ public class Planner extends TicketplannerBase {
 		List<Dag> dagPlan = util.getDagPlan(firstDay, lastDay);
 
 		// Skapa alla resor mellan första och sista dag
-		List<Resa> reseplan = new ArrayList<Resa>(dagPlan.size());
+		List<Resa> reseplan = new ArrayList<>(dagPlan.size());
 
 		for (Dag day : dagPlan) {
 			int antalResor = getAntalResor(day, props);
@@ -98,7 +98,7 @@ public class Planner extends TicketplannerBase {
 		// TODO Testa hur rensning sker om man har en tioresor och en månads med samma
 		// sistagiltighetsdag.
 
-		List<Biljettplan> nyLista = new ArrayList<Biljettplan>();
+		List<Biljettplan> nyLista = new ArrayList<>();
 		Dag oldDay = new Dag("1901-01-01");
 
 		// Sortera alla planer på sista giltighetsdag

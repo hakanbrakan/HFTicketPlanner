@@ -22,7 +22,7 @@ public class PlannerUtility extends TicketplannerBase {
 	}
 
 	public List<Dag> getDagPlan(Dag firstDay, Dag lastDay) {
-		List<Dag> list = new ArrayList<Dag>();
+		List<Dag> list = new ArrayList<>();
 		list.add(firstDay);
 		Dag tempDay = firstDay.getNextDag();
 

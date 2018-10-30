@@ -20,7 +20,7 @@ abstract public class Biljett extends TicketplannerBase {
 	public Biljett(DELBAR delbar) {
 		super();
 		this.arDelbar = delbar;
-		resor = new ArrayList<Resa>();
+		resor = new ArrayList<>();
 	}
 
 	public void setPris(int i) {

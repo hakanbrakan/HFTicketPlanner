@@ -20,7 +20,7 @@ public class Ticketcreator {
 	}
 
 	public List<Biljett> createAllTickets(Resa resa) {
-		List<Biljett> lista = new ArrayList<Biljett>();
+		List<Biljett> lista = new ArrayList<>();
 		List<String> biljettTyper = Arrays.asList(props.getProperty("biljettTyper").split("\\s*,\\s*"));
 
 		for (String enBiljettyp : biljettTyper) {
