@@ -92,7 +92,6 @@ public class ConfigTioResorTest {
 		Resa resa3 = new Resa(dag3);
 		Properties props3 = new Properties();
 		props3.setProperty("priceTioresor", "650");
-//		TioResor tioResor3 = new TioResor(resa3, props);
 		Biljett tioResor3 = Configbiljett.getInstance("TioResor", resa3, 10, 30, 650);
 
 		assertEquals("2007-12-18", tioResor3.getSistaGiltighetsdag().toString());

@@ -75,9 +75,8 @@ public class Biljettplan extends TicketplannerBase {
 		Dag sistaDag = null;
 
 		if (biljetter.size() > 0) {
-			// Returnera sista biljettens sista giltighetsdag
-			Biljett biljett = biljetter.get(biljetter.size() - 1);
-			sistaDag = biljett.getSistaGiltighetsdag();
+			Biljett sistaBiljetten = biljetter.get(biljetter.size() - 1);
+			sistaDag = sistaBiljetten.getSistaGiltighetsdag();
 		}
 
 		return sistaDag;

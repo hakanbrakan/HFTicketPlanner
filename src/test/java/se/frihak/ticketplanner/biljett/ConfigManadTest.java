@@ -35,7 +35,6 @@ public class ConfigManadTest {
 		assertFalse(manad.isValid(new Resa(new Dag("2007-12-12"))));
 	}
 
-	//TODO Nytt nedan. Gamla tester from gamla testklassen
 	@Test
 	public void testIsValid() {
 		Dag dag2 = new Dag("2007-11-13");

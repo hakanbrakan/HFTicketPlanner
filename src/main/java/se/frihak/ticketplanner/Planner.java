@@ -28,9 +28,6 @@ public class Planner extends TicketplannerBase {
 	}
 
 	private List<Resa> getReseplan(Dag firstDay, Dag lastDay, Properties props) {
-
-		// Skapa en testmetod JUnit om den blir public
-
 		PlannerUtility util = new PlannerUtility();
 		List<Dag> dagPlan = util.getDagPlan(firstDay, lastDay);
 
@@ -49,9 +46,6 @@ public class Planner extends TicketplannerBase {
 	}
 
 	private int getAntalResor(Dag day, Properties props) {
-
-		// Skapa en testmetod JUnit om denna blir public
-
 		String veckodag = day.getWeekdayFormatted();
 		String key = "defaultResor" + veckodag;
 		int antalResor = 0;
@@ -93,8 +87,6 @@ public class Planner extends TicketplannerBase {
 	}
 
 	private List<Biljettplan> rensaPlaner(List<Biljettplan> plan, Dag planeringsdag) {
-		// Om denna blir public, Skapa en testmetod JUnit
-
 		// TODO Testa hur rensning sker om man har en tioresor och en månads med samma
 		// sistagiltighetsdag.
 

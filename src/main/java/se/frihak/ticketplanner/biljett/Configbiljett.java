@@ -71,9 +71,7 @@ public class Configbiljett extends Biljett {
 		if (resor.size() < giltigAntalResor) {
 			sistaDag = super.getSistaGiltighetsdag();
 		} else {
-			// Hämta sista resan
 			Resa sistaResa = resor.get(resor.size() - 1);
-
 			sistaDag = sistaResa.getDag();
 		}
 
