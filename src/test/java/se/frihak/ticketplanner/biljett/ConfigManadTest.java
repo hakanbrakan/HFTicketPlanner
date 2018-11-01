@@ -25,29 +25,18 @@ public class ConfigManadTest {
 	@Test
 	public void testManadIsValid() {
 		assertTrue(manad.isValid(resa));
-
-		Resa resa2 = new Resa(new Dag("2007-11-13"));
-		assertTrue(manad.isValid(resa2));
-
-		Resa resa3 = new Resa(new Dag("2007-12-11"));
-		assertTrue(manad.isValid(resa3));
-
+		assertTrue(manad.isValid(new Resa(new Dag("2007-11-13"))));
+		assertTrue(manad.isValid(new Resa(new Dag("2007-12-11"))));
 		assertFalse(manad.isValid(new Resa(new Dag("2007-12-12"))));
 	}
 
 	@Test
 	public void testIsValid() {
-		Dag dag2 = new Dag("2007-11-13");
-		Resa resa2 = new Resa(dag2);
-		assertTrue(manad.isValid(resa2));
-
-		Dag dag3 = new Dag("2007-11-11");
-		Resa resa3 = new Resa(dag3);
-		assertFalse(manad.isValid(resa3));
+		assertTrue(manad.isValid(new Resa(new Dag("2007-11-13"))));
+		assertFalse(manad.isValid(new Resa(new Dag("2007-11-11"))));
 
 		Dag dag4 = new Dag("2007-11-12");
-		Dag temp = dag4.plusDays(34);
-		Resa resa4 = new Resa(temp);
+		Resa resa4 = new Resa(dag4.plusDays(34));
 		assertFalse(manad.isValid(resa4));
 	}
 

@@ -6,7 +6,6 @@ Maxa coverage
 JUnit5
 Bygga med Maven
 Extrahera konstanter, finns många i testerna
-Refaktorisera ConfigTioResorTest
 Göra klart alla tester ConfigManadTest
 Göra klart alla tester BiljettTest
 Ta bort basklassen
@@ -24,6 +23,9 @@ org.apache.commons.lang3.StringUtils
 
 Klart
 =====
+2018-11-01
+Refaktorisera ConfigTioResorTest
+
 2018-10-31
 Rensa kommentarer
 

@@ -4,8 +4,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import java.util.Properties;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -13,7 +11,6 @@ import se.frihak.ticketplanner.kalender.Dag;
 import se.frihak.ticketplanner.kalender.Resa;
 
 public class ConfigTioResorTest {
-
 	private Dag dag;
 	private Resa resa;
 	private Configbiljett tioresor;
@@ -50,13 +47,8 @@ public class ConfigTioResorTest {
 	
 	@Test
 	public void testIsValid() {
-		Dag dag2 = new Dag("2007-11-13");
-		Resa resa2 = new Resa(dag2);
-		assertTrue(tioresor.isValid(resa2));
-
-		Dag dag3 = new Dag("2008-11-11");
-		Resa resa3 = new Resa(dag3);
-		assertFalse(tioresor.isValid(resa3));
+		assertTrue(tioresor.isValid(new Resa(new Dag("2007-11-13"))));
+		assertFalse(tioresor.isValid(new Resa(new Dag("2008-11-11"))));
 	}
 
 	@Test
@@ -83,66 +75,41 @@ public class ConfigTioResorTest {
 
 	@Test
 	public void testGetSistaGiltighetsdag() {
-		dag = new Dag("2007-11-12");
+		assertEquals("2007-12-11", tioresor.getSistaGiltighetsdag().toString());
+	}
+
+	@Test
+	public void sistaGiltighetsdagMasteAndrasNarTioResorHarAnvants() {
+		tioresor.add(new Resa(new Dag("2007-11-12")));
+		tioresor.add(new Resa(new Dag("2007-11-13")));
+		tioresor.add(new Resa(new Dag("2007-11-13")));
+		tioresor.add(new Resa(new Dag("2007-11-14")));
+		tioresor.add(new Resa(new Dag("2007-11-14")));
+		tioresor.add(new Resa(new Dag("2007-11-15")));
+		tioresor.add(new Resa(new Dag("2007-11-15")));
+		tioresor.add(new Resa(new Dag("2007-11-16")));
 		assertEquals("2007-12-11", tioresor.getSistaGiltighetsdag().toString());
 
-		// Ytterligare test d� jag tror att jag r�knade fel f�rut
-
-		Dag dag3 = new Dag("2007-11-19");
-		Resa resa3 = new Resa(dag3);
-		Properties props3 = new Properties();
-		props3.setProperty("priceTioresor", "650");
-		Biljett tioResor3 = Configbiljett.getInstance("TioResor", resa3, 10, 30, 650);
-
-		assertEquals("2007-12-18", tioResor3.getSistaGiltighetsdag().toString());
-
-		// Sista giltdag m�ste �ndras n�r man anv�nt alla 10 resor
-		Dag dag2 = new Dag("2007-11-12");
-		Resa resa2 = new Resa(dag2);
-		tioresor.add(resa2);
-		dag2 = new Dag("2007-11-13");
-		resa2 = new Resa(dag2);
-		tioresor.add(resa2);
-		dag2 = new Dag("2007-11-13");
-		resa2 = new Resa(dag2);
-		tioresor.add(resa2);
-		dag2 = new Dag("2007-11-14");
-		resa2 = new Resa(dag2);
-		tioresor.add(resa2);
-		dag2 = new Dag("2007-11-14");
-		resa2 = new Resa(dag2);
-		tioresor.add(resa2);
-		dag2 = new Dag("2007-11-15");
-		resa2 = new Resa(dag2);
-		tioresor.add(resa2);
-		dag2 = new Dag("2007-11-15");
-		resa2 = new Resa(dag2);
-		tioresor.add(resa2);
-		dag2 = new Dag("2007-11-16");
-		resa2 = new Resa(dag2);
-		tioresor.add(resa2);
-		assertEquals("2007-12-11", tioresor.getSistaGiltighetsdag().toString());
-		dag2 = new Dag("2007-11-16");
-		resa2 = new Resa(dag2);
-		tioresor.add(resa2);
+		tioresor.add(new Resa(new Dag("2007-11-16")));
 		assertEquals("2007-11-16", tioresor.getSistaGiltighetsdag().toString());
 	}
 
 	@Test
-	public void testSetSistaGiltighetsdag() {
-		Dag dag2 = new Dag("2007-12-27");
-		tioresor.setSistaGiltighetsdag(dag2);
-		assertEquals("2007-12-27", tioresor.getSistaGiltighetsdag().toString());
+	public void ytterligareTestGetSistaGiltighetsdagTioResor() {
+		Resa resa = new Resa(new Dag("2007-11-19"));
+		Biljett tioResor = Configbiljett.getInstance("TioResor", resa, 10, 30, 650);
+
+		assertEquals("2007-12-18", tioResor.getSistaGiltighetsdag().toString());
 	}
 
 	@Test
-	public void testAdd() {
-		// TODO fail("Not yet implemented");
+	public void testSetSistaGiltighetsdag() {
+		tioresor.setSistaGiltighetsdag(new Dag("2007-12-27"));
+		assertEquals("2007-12-27", tioresor.getSistaGiltighetsdag().toString());
 	}
 
 	@Test
 	public void testGetPris() {
 		assertEquals(650, tioresor.getPris());
 	}
-
 }
