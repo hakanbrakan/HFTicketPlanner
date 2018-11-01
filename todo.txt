@@ -8,7 +8,6 @@ Bygga med Maven
 Extrahera konstanter, finns många i testerna
 Göra klart alla tester ConfigManadTest
 Göra klart alla tester BiljettTest
-Ta bort basklassen
 
 
 Vänta med
@@ -24,6 +23,7 @@ org.apache.commons.lang3.StringUtils
 Klart
 =====
 2018-11-01
+Ta bort basklassen
 Refaktorisera ConfigTioResorTest
 
 2018-10-31

@@ -13,7 +13,7 @@ import java.util.Properties;
 import se.frihak.ticketplanner.biljett.Biljettplan;
 import se.frihak.ticketplanner.kalender.Dag;
 
-public class PlannerUtility extends TicketplannerBase {
+public class PlannerUtility {
 
 	public Properties getProperties(InputStream fileAsStream) throws IOException {
 		Properties props = new Properties();

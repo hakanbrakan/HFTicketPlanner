@@ -4,9 +4,7 @@ import java.time.LocalDate;
 import java.time.format.TextStyle;
 import java.util.Locale;
 
-import se.frihak.ticketplanner.TicketplannerBase;
-
-public class Dag extends TicketplannerBase {
+public class Dag {
 
 	private LocalDate dagen;
 

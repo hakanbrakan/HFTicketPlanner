@@ -1,8 +1,6 @@
 package se.frihak.ticketplanner.kalender;
 
-import se.frihak.ticketplanner.TicketplannerBase;
-
-public class Resa extends TicketplannerBase {
+public class Resa {
 	private Dag resdag = null;
 
 	public Resa(Dag newResdag) {

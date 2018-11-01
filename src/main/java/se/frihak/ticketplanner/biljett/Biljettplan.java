@@ -6,11 +6,10 @@ import java.util.List;
 import java.util.Optional;
 
 import se.frihak.ticketplanner.Ticketcreator;
-import se.frihak.ticketplanner.TicketplannerBase;
 import se.frihak.ticketplanner.kalender.Dag;
 import se.frihak.ticketplanner.kalender.Resa;
 
-public class Biljettplan extends TicketplannerBase {
+public class Biljettplan {
 	private List<Biljett> biljetter = new ArrayList<>();
 
 	public Biljettplan(Biljettplan biljettplan, Biljett bilj) {

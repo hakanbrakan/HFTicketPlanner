@@ -11,7 +11,7 @@ import se.frihak.ticketplanner.biljett.Biljettplan;
 import se.frihak.ticketplanner.kalender.Dag;
 import se.frihak.ticketplanner.kalender.Resa;
 
-public class Planner extends TicketplannerBase {
+public class Planner{
 	private static final Logger LOGGER = Logger.getLogger(Planner.class.getName() );
 
 	private int counter = 0;

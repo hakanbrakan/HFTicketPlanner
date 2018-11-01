@@ -3,11 +3,10 @@ package se.frihak.ticketplanner.biljett;
 import java.io.PrintStream;
 import java.util.ArrayList;
 
-import se.frihak.ticketplanner.TicketplannerBase;
 import se.frihak.ticketplanner.kalender.Dag;
 import se.frihak.ticketplanner.kalender.Resa;
 
-abstract public class Biljett extends TicketplannerBase {
+abstract public class Biljett {
 	private int pris = 0;
 	private Dag forstaGiltighetsdag = null;
 	private Dag sistaGiltighetsdag = null;
@@ -18,7 +17,6 @@ abstract public class Biljett extends TicketplannerBase {
 	private DELBAR arDelbar = DELBAR.NEJ;
 
 	public Biljett(DELBAR delbar) {
-		super();
 		this.arDelbar = delbar;
 		resor = new ArrayList<>();
 	}
