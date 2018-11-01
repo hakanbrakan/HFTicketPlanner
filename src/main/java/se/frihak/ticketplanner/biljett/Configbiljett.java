@@ -8,7 +8,6 @@ import se.frihak.ticketplanner.validators.Asserter;
 import se.frihak.ticketplanner.validators.Validator;
 
 public class Configbiljett extends Biljett {
-
 	private String namn;
 	private int giltigAntalResor;
 

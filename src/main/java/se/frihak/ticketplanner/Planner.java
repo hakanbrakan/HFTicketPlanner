@@ -12,13 +12,17 @@ import se.frihak.ticketplanner.kalender.Dag;
 import se.frihak.ticketplanner.kalender.Resa;
 
 public class Planner{
+	private static final String RESOR = "resor";
+	private static final String DEFAULT_RESOR = "defaultResor";
+	private static final String SISTA_RESDAG = "sistaResdag";
+	private static final String FORSTA_RESDAG = "forstaResdag";
 	private static final Logger LOGGER = Logger.getLogger(Planner.class.getName() );
 
 	private int counter = 0;
 
 	public List<Biljettplan> planeraBiljetter(Properties props) {
-		Dag firstDay = new Dag(props.getProperty("forstaResdag"));
-		Dag lastDay = new Dag(props.getProperty("sistaResdag"));
+		Dag firstDay = new Dag(props.getProperty(FORSTA_RESDAG));
+		Dag lastDay = new Dag(props.getProperty(SISTA_RESDAG));
 
 		List<Resa> resor = getReseplan(firstDay, lastDay, props);
 
@@ -47,7 +51,7 @@ public class Planner{
 
 	private int getAntalResor(Dag day, Properties props) {
 		String veckodag = day.getWeekdayFormatted();
-		String key = "defaultResor" + veckodag;
+		String key = DEFAULT_RESOR + veckodag;
 		int antalResor = 0;
 
 		if (props.containsKey(key)) {
@@ -55,7 +59,7 @@ public class Planner{
 			antalResor = Integer.parseInt(strAntalResor);
 		}
 
-		key = "resor" + day.toString();
+		key = RESOR + day.toString();
 
 		if (props.containsKey(key)) {
 			String strAntalResor = props.getProperty(key);

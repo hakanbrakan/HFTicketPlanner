@@ -15,6 +15,8 @@ import se.frihak.ticketplanner.kalender.Dag;
 
 public class PlannerUtility {
 
+	private static final String PRIS = "Pris: ";
+
 	public Properties getProperties(InputStream fileAsStream) throws IOException {
 		Properties props = new Properties();
 		props.load(fileAsStream);
@@ -44,7 +46,7 @@ public class PlannerUtility {
 		PrintStream p = new PrintStream(out);
 
 		for (Biljettplan biljplan : biljettplaner) {
-			p.print("Pris: " + biljplan.getPrice() + ", ");
+			p.print(PRIS + biljplan.getPrice() + ", ");
 			biljplan.write(p);
 			p.println();
 		}

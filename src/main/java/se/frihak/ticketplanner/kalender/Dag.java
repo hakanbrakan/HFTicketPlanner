@@ -5,7 +5,6 @@ import java.time.format.TextStyle;
 import java.util.Locale;
 
 public class Dag {
-
 	private LocalDate dagen;
 
 	public Dag(String newDag) {
