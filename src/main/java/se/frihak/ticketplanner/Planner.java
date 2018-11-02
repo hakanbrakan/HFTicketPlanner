@@ -91,13 +91,9 @@ public class Planner{
 	}
 
 	private List<Biljettplan> rensaPlaner(List<Biljettplan> plan, Dag planeringsdag) {
-		// TODO Testa hur rensning sker om man har en tioresor och en månads med samma
-		// sistagiltighetsdag.
-
 		List<Biljettplan> nyLista = new ArrayList<>();
 		Dag oldDay = new Dag("1901-01-01");
 
-		// Sortera alla planer på sista giltighetsdag
 		Collections.sort(plan, new LastDateComparator());
 
 		for (Biljettplan bp : plan) {

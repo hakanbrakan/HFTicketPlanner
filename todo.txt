@@ -1,7 +1,6 @@
 
 Todo
 ====
-Vid "rensa plan" ta bort den plan som har mest antal månadskort - kan vara samma sak som minst antal biljetter
 Maxa coverage
 JUnit5
 Bygga med Maven
@@ -86,3 +85,8 @@ leta fram sourcekod
 skapa workspace
 spara undan facit från idag
 checka in på github
+
+
+Skall INTE göras
+================
+Vid "rensa plan" ta bort den plan som har mest antal månadskort - Nej, det är fel. Det är rätt som det är nu då man sorterar på pris också
