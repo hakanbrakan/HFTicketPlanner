@@ -1,13 +1,13 @@
 
 Todo
 ====
-Maxa coverage
-JUnit5
 Bygga med Maven
 
 
 Vänta med
 =========
+JUnit5
+Maxa coverage
 I Biljettplan testa använda stringjoiner istället för stringbuffer
 Testa threads
 Ny biljettyp - poäng, lång giltighetstid, x resor 0kr
