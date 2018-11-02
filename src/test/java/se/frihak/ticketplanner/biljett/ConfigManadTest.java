@@ -82,7 +82,9 @@ public class ConfigManadTest {
 
 	@Test
 	public void testAdd() {
-		// TODO Jobba mer h�r fail("Not yet implemented");
+		assertTrue(manad.add(new Resa(new Dag("2007-11-13"))));
+		assertEquals(2, manad.resor.size());
+		assertFalse(manad.add(new Resa(new Dag("2007-12-29"))));
 	}
 
 	@Test
