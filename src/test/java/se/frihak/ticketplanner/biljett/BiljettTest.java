@@ -1,6 +1,7 @@
 package se.frihak.ticketplanner.biljett;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Properties;
@@ -83,30 +84,22 @@ public class BiljettTest {
 
 	@Test
 	public void testAdd() {
-		// TODO Denna testar varken r�tt klass eller r�tt saker. �nnu.
-		dag = new Dag("2007-01-02");
-		resa = new Resa(dag);
-		assertTrue(biljManad1.add(resa));
+		assertTrue(biljManad1.add(new Resa(new Dag("2007-01-02"))));
 		assertEquals("2007-01-30", biljManad1.getSistaGiltighetsdag().toString());
 
-		dag = new Dag("2007-01-02");
-		resa = new Resa(dag);
-		assertTrue(biljManad1.add(resa));
+		assertTrue(biljManad1.add(new Resa(new Dag("2007-01-02"))));
 		assertEquals("2007-01-30", biljManad1.getSistaGiltighetsdag().toString());
 
-		dag = new Dag("2007-01-03");
-		resa = new Resa(dag);
-		assertTrue(biljManad1.add(resa));
+		assertTrue(biljManad1.add(new Resa(new Dag("2007-01-03"))));
 		assertEquals("2007-01-30", biljManad1.getSistaGiltighetsdag().toString());
 
-		dag = new Dag("2007-01-03");
-		resa = new Resa(dag);
-		assertTrue(biljManad1.add(resa));
+		assertTrue(biljManad1.add(new Resa(new Dag("2007-01-03"))));
 		assertEquals("2007-01-30", biljManad1.getSistaGiltighetsdag().toString());
 
 		assertEquals("Månadskort 2007-01-01 t.o.m 2007-01-30", biljManad1.toString());
 
-		// TODO ("Hitta p� fler tester att resorna verkligen finns p� biljetten");
+		assertFalse(biljManad1.add(new Resa(new Dag("2007-01-31"))));
+		assertEquals(5, biljManad1.resor.size());
 	}
 	
 	@Test

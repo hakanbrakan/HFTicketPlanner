@@ -5,7 +5,6 @@ Vid "rensa plan" ta bort den plan som har mest antal månadskort - kan vara samm
 Maxa coverage
 JUnit5
 Bygga med Maven
-Göra klart alla tester BiljettTest
 
 
 Vänta med
@@ -22,6 +21,7 @@ org.apache.commons.lang3.StringUtils
 Klart
 =====
 2018-11-02
+Göra klart alla tester BiljettTest
 Göra klart alla tester ConfigManadTest
 
 2018-11-01
