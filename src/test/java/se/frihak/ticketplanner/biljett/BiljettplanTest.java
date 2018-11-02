@@ -64,20 +64,11 @@ public class BiljettplanTest {
 
 	@Test
 	public void testGetPrice() {
-		Dag dag = new Dag("2007-11-01");
-		Resa resa = new Resa(dag);
-		List<Biljettplan> list = plan.planera(resa, ticketcreator);
+		List<Biljettplan> list = plan.planera(new Resa(new Dag("2007-11-01")), ticketcreator);
 
-		Biljettplan plan = list.get(0);
-		assertEquals(1900, plan.getPrice());
-
-		plan = list.get(1);
-		assertEquals(90, plan.getPrice());
-
-		plan = list.get(2);
-		assertEquals(650, plan.getPrice());
-
-		// TODO Fler tester med st�rre planer (fler biljetter) h�r
+		assertEquals(1900, list.get(0).getPrice());
+		assertEquals(90, list.get(1).getPrice());
+		assertEquals(650, list.get(2).getPrice());
 	}
 
 	@Test

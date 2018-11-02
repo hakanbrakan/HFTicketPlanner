@@ -21,7 +21,7 @@ public class Configbiljett extends Biljett {
 		Dag sistaDag = resa.getDag().plusDays(giltigAntalDagar - 1); // Giltighetstiden är inkluderat idag, därför -1 här
 		setSistaGiltighetsdag(sistaDag);
 
-		add(resa); //TODO Denna måste tydligen ligga sist. Är det bra
+		add(resa);
 	}
 
 	@Override
@@ -61,10 +61,6 @@ public class Configbiljett extends Biljett {
 	
 	@Override
 	public Dag getSistaGiltighetsdag() {
-		//TODO Det här var en konstig konstruktion. Verkar som att denna finns bara för att sätta om 
-		//sista dag när alla reor är förbrukade så man inte behöver skapa o kasta planer i onödan.
-		//TODO gör något åt denna. Tex vid rensa planer inte bara titta på sistagiltighetsdag utan även om bilj är valid på något sätt.
-		//Oavsett vilket bör det förbättras.
 		Dag sistaDag = null;
 
 		if (resor.size() < giltigAntalResor) {
