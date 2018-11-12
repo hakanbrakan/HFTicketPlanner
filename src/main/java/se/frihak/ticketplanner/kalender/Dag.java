@@ -39,7 +39,7 @@ public class Dag {
 	}
 
 	public String getWeekdayFormatted() {
-		String veckodag = dagen.getDayOfWeek().getDisplayName(TextStyle.FULL , Locale.getDefault());
+		String veckodag = dagen.getDayOfWeek().getDisplayName(TextStyle.FULL , Locale.forLanguageTag("SV"));
 		String v1 = veckodag.substring(0, 1).toUpperCase();
 		String v2 = veckodag.substring(1);
 
