@@ -2,7 +2,7 @@
 Todo
 ====
 Bygga med Maven
-
+manifestplugin i pommen
 
 Vänta med
 =========
@@ -19,6 +19,13 @@ org.apache.commons.lang3.StringUtils
 
 Klart
 =====
+2018-11-12
+Loggning av rapportfilens namn
+Får fel i testerna. Tex engelska namn på dagarna.
+Loggning - verkar som den inte får tag i propfilen när man kör java utan bara när man kör en testklass i JUnit
+	hur jag vill att det ska vara: kör sgm som vanligt då ska info synas, men i junit ska info inte synas.
+	fick till det genom att återinläsa propertiesfilen. Nu styrs loggning i test från den filen.
+
 2018-11-02
 Göra klart alla tester BiljettTest
 Göra klart alla tester ConfigManadTest
