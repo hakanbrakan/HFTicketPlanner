@@ -2,7 +2,6 @@
 Todo
 ====
 Bygga med Maven
-manifestplugin i pommen
 
 Vänta med
 =========
@@ -19,6 +18,9 @@ org.apache.commons.lang3.StringUtils
 
 Klart
 =====
+2018-11-13
+manifestplugin i pommen
+
 2018-11-12
 Loggning av rapportfilens namn
 Får fel i testerna. Tex engelska namn på dagarna.
